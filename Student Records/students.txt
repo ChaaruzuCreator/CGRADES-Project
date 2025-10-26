@@ -1,114 +1,194 @@
-Total Students: 8
+Total Students: 12
 
 
 ID: 1
 Name: Jerick burito
-Quiz 1: 0.00
-Quiz 2: 89.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      89.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 0.00
-Average: 11.12
+Project:     0.00
+Average:     11.12
 
 ================
 
 ID: 2
-Name: Borlio hahaha
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Name: asdkasd
+Grade: 1
+Section: b
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 89.00
-Average: 11.12
+Project:     0.00
+Average:     0.00
 
 ================
 
 ID: 3
 Name: 23312 312
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 0.00
-Average: 0.00
+Project:     0.00
+Average:     0.00
 
 ================
 
 ID: 4
 Name: charles Vincen asdawrw
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 89.00
-Project: 89.00
-Average: 22.25
+Project:     89.00
+Average:     22.25
 
 ================
 
 ID: 5
 Name: 231eda2
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 0.00
-Average: 0.00
+Project:     0.00
+Average:     0.00
 
 ================
 
 ID: 6
-Name: 1
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Name: charels you seek
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 0.00
-Average: 0.00
+Project:     0.00
+Average:     0.00
 
 ================
 
 ID: 7
 Name: 1
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 0.00
-Average: 0.00
+Project:     0.00
+Average:     0.00
 
 ================
 
 ID: 8
-Name: 1
-Quiz 1: 0.00
-Quiz 2: 0.00
-Quiz 3: 0.00
-Activity 1: 0.00
-Activity 2: 0.00
-Activity 3: 0.00
+Name: sadasd asd
+Grade: 2
+Section: 9
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
 Examination: 0.00
-Project: 0.00
-Average: 0.00
+Project:     0.00
+Average:     0.00
+
+================
+
+ID: 9
+Name: Never a frown
+Grade: 0
+Section: 
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
+Examination: 0.00
+Project:     0.00
+Average:     0.00
+
+================
+
+ID: 10
+Name: dsada
+Grade: 2
+Section: B
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
+Examination: 0.00
+Project:     0.00
+Average:     0.00
+
+================
+
+ID: 10
+Name: till the day
+Grade: 3
+Section: 8
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
+Examination: 0.00
+Project:     0.00
+Average:     0.00
+
+================
+
+ID: 11
+Name: charles fasdsa
+Grade: 2
+Section: b
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
+Examination: 0.00
+Project:     0.00
+Average:     0.00
 
 ================
