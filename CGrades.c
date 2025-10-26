@@ -27,13 +27,13 @@ Student students[MAX_STUDENTS];
 int studentCount = 0;
 
 static void printStudentTable(void) {
-    printf(" %-4s | %-25s | %-5s | %-8s | %-6s | %-6s | %-6s | %-6s | %-6s | %-6s | %-6s | %-6s | %-7s\n",
+    printf(" %-4s "RED"|"HAGGANGDITO" %-25s "RED"|"HAGGANGDITO" %-5s "RED"|"HAGGANGDITO" %-8s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-7s\n",
            "ID", "Name", "Grade", "Section", "Quiz1", "Quiz2", "Quiz3",
            "Act1", "Act2", "Act3", "Exam", "Proj", "Average");
-    printf(" -----+---------------------------+-------+---------+--------+--------+--------+--------+--------+--------+--------+--------+---------\n");
+    printf(RED" -----+---------------------------+-------+----------+--------+--------+--------+--------+--------+--------+--------+--------+---------\n"HAGGANGDITO);
 
     for (int i = 0; i < studentCount; i++) {
-        printf(" %-4d | %-25s | %-5d | %-8s | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %7.2f\n",
+        printf(" %-4d "RED"|"HAGGANGDITO" %-25s "RED"|"HAGGANGDITO" %-5d "RED"|"HAGGANGDITO" %-8s "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f\n",
                students[i].id,
                students[i].name,
                students[i].grade,
@@ -151,7 +151,7 @@ void calculateAverage(Student* s) {
 
 void addStudent() {
     if (studentCount >= MAX_STUDENTS) {
-        printf("Cannot add more students!\n");
+        printf(RED"Cannot add more students!\n"HAGGANGDITO);
         return;
     }
     
@@ -171,7 +171,7 @@ void addStudent() {
         candidateId++;
     }
     if (candidateId > MAX_STUDENTS) {
-        printf("Cannot assign new ID. Roster is full.\n");
+        printf(RED"Cannot assign new ID. Roster is full.\n"HAGGANGDITO);
         return;
     }
     s.id = candidateId;
@@ -188,7 +188,7 @@ void addStudent() {
 
     printf(BCYN"=== ADDING NEW STUDENT ===\n\n"HAGGANGDITO);
     
-    printf("Enter student name (0 to exit): "HAGGANGDITO);
+    printf(BCYN"Enter student name (0 to exit)"HAGGANGDITO": ");
     fgets(s.name, MAX_NAME, stdin);
     s.name[strcspn(s.name, "\n")] = 0;
     if (strlen(s.name) == 0 || strcmp(s.name, "0") == 0) {
@@ -198,7 +198,7 @@ void addStudent() {
 
     
     do {
-        printf("Enter grade level (1-12): "HAGGANGDITO);
+        printf(BCYN"Enter grade level (1-12)"HAGGANGDITO": ");
         if (scanf("%d", &s.grade) != 1) {
             int c; while ((c = getchar()) != '\n' && c != EOF) {}
             s.grade = 0;
@@ -209,7 +209,7 @@ void addStudent() {
         }
     } while (s.grade < 1 || s.grade > 12);
 
-    printf("Enter section: "HAGGANGDITO);
+    printf(BCYN"Enter section"HAGGANGDITO": ");
     fgets(s.section, sizeof(s.section), stdin);
     s.section[strcspn(s.section, "\n")] = 0;
 
@@ -833,7 +833,7 @@ BHRED"      .::::   "HAGGANGDITO BHYEL" .:::::  "HAGGANGDITO BHGRN" .::      .::
 BHRED"\t                         |--- BY BSEMC 1-B ---|                           "HAGGANGDITO;
                                                           
     puts(banner);
-    printf(BCYN"\n WELCOME TO THE CGRADE SYSTEM BOOK!!\n"HAGGANGDITO);
+    printf(BCYN"\n WELCOME TO THE CGRADE SYSTEM BOOK!!\n\n"HAGGANGDITO);
         printf(YEL"  [1]"HAGGANGDITO" Add Student\n");
         printf(YEL"  [2]"HAGGANGDITO" Show All Students\n");
         printf(YEL"  [3]"HAGGANGDITO" Edit Student\n");
