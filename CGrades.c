@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <conio.h>
 #include "Color.h"
 
 #define MAX_STUDENTS 50
@@ -22,6 +23,8 @@ typedef struct {
 
 Student students[MAX_STUDENTS];
 int studentCount = 0;
+
+//===========================================================================================================================
 
 void saveToFile() {
 
@@ -53,6 +56,8 @@ void saveToFile() {
     fclose(file);
 }
 
+//===========================================================================================================================
+
 void loadFromFile() {
     FILE* file = fopen("Student Records\\students.txt", "r");
     if (file == NULL) {
@@ -83,6 +88,8 @@ void loadFromFile() {
 void calculateAverage(Student* s) {
     s->average = (s->quiz1 + s->quiz2 + s->quiz3 + s->activity1 + s->activity2 + s->activity3 + s->examination + s->project) / 8.0;
 }
+
+//===========================================================================================================================
 
 void addStudent() {
     if (studentCount >= MAX_STUDENTS) {
@@ -124,11 +131,11 @@ void addStudent() {
         printf("| %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %7.2f\n",
                s.quiz1, s.quiz2, s.quiz3, s.activity1, s.activity2, s.activity3, s.examination, s.project, currentAvg);
         
-        printf(YELLOW "\nWhat should you record?\n\n" HAGGANGDITO);
+        printf(GRNB "\nWhat should you record?\n\n" HAGGANGDITO);
 
-        printf(YELLOW"[1] Quiz 1  [4] Activity 1  [7] Examination\n"HAGGANGDITO);
+        printf("[1] Quiz 1  [4] Activity 1  [7] Examination\n"HAGGANGDITO);
         printf("[2] Quiz 2  [5] Activity 2  [8] Project\n");
-        printf("[3] Quiz 3  [6] Activity 3  [9] Information\n\n");
+        printf("[3] Quiz 3  [6] Activity 3  " GRN "[9] Information\n\n"HAGGANGDITO);
 
         printf("[Y] Finish and Save\n");
         printf("[N] Cancel\n");
@@ -149,7 +156,7 @@ void addStudent() {
                     printf("Enter Quiz 1 score (0-100): ");
                     scanf("%f", &s.quiz1);
                 }
-                printf(GREEN "Quiz 1 saved: %.2f\n" HAGGANGDITO, s.quiz1);
+                printf(GRN "Quiz 1 saved: %.2f\n" HAGGANGDITO, s.quiz1);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -167,7 +174,7 @@ void addStudent() {
                     printf("Enter Quiz 2 score (0-100): ");
                     scanf("%f", &s.quiz2);
                 }
-                printf(GREEN "Quiz 2 saved: %.2f\n" HAGGANGDITO, s.quiz2);
+                printf(GRN "Quiz 2 saved: %.2f\n" HAGGANGDITO, s.quiz2);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -185,7 +192,7 @@ void addStudent() {
                     printf("Enter Quiz 3 score (0-100): ");
                     scanf("%f", &s.quiz3);
                 }
-                printf(GREEN "Quiz 3 saved: %.2f\n" HAGGANGDITO, s.quiz3);
+                printf(GRN "Quiz 3 saved: %.2f\n" HAGGANGDITO, s.quiz3);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -203,7 +210,7 @@ void addStudent() {
                     printf("Enter Activity 1 score (0-100): ");
                     scanf("%f", &s.activity1);
                 }
-                printf(GREEN "Activity 1 saved: %.2f\n" HAGGANGDITO, s.activity1);
+                printf(GRN "Activity 1 saved: %.2f\n" HAGGANGDITO, s.activity1);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -221,7 +228,7 @@ void addStudent() {
                     printf("Enter Activity 2 score (0-100): ");
                     scanf("%f", &s.activity2);
                 }
-                printf(GREEN "Activity 2 saved: %.2f\n" HAGGANGDITO, s.activity2);
+                printf(GRN "Activity 2 saved: %.2f\n" HAGGANGDITO, s.activity2);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -239,7 +246,7 @@ void addStudent() {
                     printf("Enter Activity 3 score (0-100): ");
                     scanf("%f", &s.activity3);
                 }
-                printf(GREEN "Activity 3 saved: %.2f\n" HAGGANGDITO, s.activity3);
+                printf(GRN "Activity 3 saved: %.2f\n" HAGGANGDITO, s.activity3);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -257,7 +264,7 @@ void addStudent() {
                     printf("Enter Examination score (0-100): ");
                     scanf("%f", &s.examination);
                 }
-                printf(GREEN "Examination saved: %.2f\n" HAGGANGDITO, s.examination);
+                printf(GRN "Examination saved: %.2f\n" HAGGANGDITO, s.examination);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -275,7 +282,7 @@ void addStudent() {
                     printf("Enter Project score (0-100): ");
                     scanf("%f", &s.project);
                 }
-                printf(GREEN "Project saved: %.2f\n" HAGGANGDITO, s.project);
+                printf(GRN "Project saved: %.2f\n" HAGGANGDITO, s.project);
                 printf("\nPress Enter to continue...");
                 getchar();
                 getchar();
@@ -294,7 +301,7 @@ void addStudent() {
                 printf("Enter new name: ");
                 fgets(s.name, MAX_NAME, stdin);
                 s.name[strcspn(s.name, "\n")] = 0;
-                printf(GREEN "Name updated to: %s\n" HAGGANGDITO, s.name);
+                printf(GRN "Name updated to: %s\n" HAGGANGDITO, s.name);
                 printf("\nPress Enter to continue...");
                 getchar();
                 system("cls");
@@ -302,7 +309,7 @@ void addStudent() {
                 
             case 'N':
             case 'n':
-                printf(YELLOW "Cancelled. Student not added.\n" HAGGANGDITO);
+                printf(YEL "Cancelled. Student not added.\n" HAGGANGDITO);
                 printf("Press Enter to continue...");
                 getchar();
                 system("cls");
@@ -318,7 +325,7 @@ void addStudent() {
     students[studentCount] = s;
     studentCount++;
 
-    printf(GREEN "Student added successfully! ID: %d\n" HAGGANGDITO, s.id);
+    printf(GRN "Student added successfully! ID: %d\n" HAGGANGDITO, s.id);
     saveToFile();
     
     printf("\n=== STUDENT: %s ===\n\n", s.name);
@@ -337,6 +344,8 @@ void addStudent() {
     getchar();
     system("cls");
 }
+
+//===========================================================================================================================
 
 void showAllStudents() {
     if (studentCount == 0) {
@@ -424,6 +433,8 @@ void showAllStudents() {
     }
 }
 
+//===========================================================================================================================
+
 
 void editStudent() {
     if (studentCount == 0) {
@@ -478,7 +489,7 @@ void editStudent() {
                             printf("Enter new Quiz 1 score (0-100): ");
                             scanf("%f", &students[i].quiz1);
                         }
-                        printf(GREEN "Quiz 1 updated: %.2f\n" HAGGANGDITO, students[i].quiz1);
+                        printf(GRN "Quiz 1 updated: %.2f\n" HAGGANGDITO, students[i].quiz1);
                         break;
                         
                     case 2:
@@ -491,7 +502,7 @@ void editStudent() {
                             printf("Enter new Quiz 2 score (0-100): ");
                             scanf("%f", &students[i].quiz2);
                         }
-                        printf(GREEN "Quiz 2 updated: %.2f\n" HAGGANGDITO, students[i].quiz2);
+                        printf(GRN "Quiz 2 updated: %.2f\n" HAGGANGDITO, students[i].quiz2);
                         break;
                         
                     case 3:
@@ -504,7 +515,7 @@ void editStudent() {
                             printf("Enter new Quiz 3 score (0-100): ");
                             scanf("%f", &students[i].quiz3);
                         }
-                        printf(GREEN "Quiz 3 updated: %.2f\n" HAGGANGDITO, students[i].quiz3);
+                        printf(GRN "Quiz 3 updated: %.2f\n" HAGGANGDITO, students[i].quiz3);
                         break;
                         
                     case 4:
@@ -517,7 +528,7 @@ void editStudent() {
                             printf("Enter new Activity 1 score (0-100): ");
                             scanf("%f", &students[i].activity1);
                         }
-                        printf(GREEN "Activity 1 updated: %.2f\n" HAGGANGDITO, students[i].activity1);
+                        printf(GRN "Activity 1 updated: %.2f\n" HAGGANGDITO, students[i].activity1);
                         break;
                         
                     case 5:
@@ -530,7 +541,7 @@ void editStudent() {
                             printf("Enter new Activity 2 score (0-100): ");
                             scanf("%f", &students[i].activity2);
                         }
-                        printf(GREEN "Activity 2 updated: %.2f\n" HAGGANGDITO, students[i].activity2);
+                        printf(GRN "Activity 2 updated: %.2f\n" HAGGANGDITO, students[i].activity2);
                         break;
                         
                     case 6:
@@ -543,7 +554,7 @@ void editStudent() {
                             printf("Enter new Activity 3 score (0-100): ");
                             scanf("%f", &students[i].activity3);
                         }
-                        printf(GREEN "Activity 3 updated: %.2f\n" HAGGANGDITO, students[i].activity3);
+                        printf(GRN "Activity 3 updated: %.2f\n" HAGGANGDITO, students[i].activity3);
                         break;
                         
                     case 7:
@@ -556,7 +567,7 @@ void editStudent() {
                             printf("Enter new Examination score (0-100): ");
                             scanf("%f", &students[i].examination);
                         }
-                        printf(GREEN "Examination updated: %.2f\n" HAGGANGDITO, students[i].examination);
+                        printf(GRN "Examination updated: %.2f\n" HAGGANGDITO, students[i].examination);
                         break;
                         
                     case 8:
@@ -569,7 +580,7 @@ void editStudent() {
                             printf("Enter new Project score (0-100): ");
                             scanf("%f", &students[i].project);
                         }
-                        printf(GREEN "Project updated: %.2f\n" HAGGANGDITO, students[i].project);
+                        printf(GRN "Project updated: %.2f\n" HAGGANGDITO, students[i].project);
                         break;
                         
                     case 0:
@@ -585,7 +596,7 @@ void editStudent() {
             getchar();
             calculateAverage(&students[i]);
             saveToFile();
-            printf(GREEN "Student updated successfully!\n" HAGGANGDITO);
+            printf(GRN "Student updated successfully!\n" HAGGANGDITO);
                 printf("Name: %s\n", students[i].name);
                 printf("Quiz 1: %.2f\n", students[i].quiz1);
                 printf("Quiz 2: %.2f\n", students[i].quiz2);
@@ -633,13 +644,13 @@ void deleteStudent() {
 int main() {
     int choice;
     
+    enableANSI();  // Enable ANSI color support once
     loadFromFile();
     
     while (1) {
-    enableANSI();
         const char *banner =
         "\n"
-GREEN"\t    .::      .::::   .:::::::          .:       .:::::    .::::::::  .:: ::  \n"
+BMAG"\t    .::      .::::   .:::::::          .:       .:::::    .::::::::  .:: ::  \n"
 "\t .::   .:: .:    .:: .::    .::       .: ::     .::   .:: .::      .::    .::\n"
 "\t.::       .::        .::    .::      .:  .::    .::    .::.::       .::      \n"
 "\t.::       .::        .: .::         .::   .::   .::    .::.::::::     .::    \n"
@@ -651,7 +662,7 @@ GREEN"\t    .::      .::::   .:::::::          .:       .:::::    .::::::::  .::
                                                          
     puts(banner);
         printf("\n=== STUDENT GRADE SYSTEM ===\n");
-        printf("[1] Add Student\n");
+        printf(BMAG"[1] Add Student\n");
         printf("[2] Show All Students\n");
         printf("[4] Edit Student\n");
         printf("[5] Delete Student\n");
