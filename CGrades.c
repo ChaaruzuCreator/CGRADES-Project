@@ -126,7 +126,7 @@ void addStudent() {
         
         printf(YELLOW "\nWhat should you record?\n\n" HAGGANGDITO);
 
-        printf("[1] Quiz 1  [4] Activity 1  [7] Examination\n");
+        printf(YELLOW"[1] Quiz 1  [4] Activity 1  [7] Examination\n"HAGGANGDITO);
         printf("[2] Quiz 2  [5] Activity 2  [8] Project\n");
         printf("[3] Quiz 3  [6] Activity 3  [9] Information\n\n");
 
