@@ -1,20 +1,72 @@
-Total Students: 2
+Total Students: 5
 
 
 ID: 1
-Name: John Jerick Borlio
-Quiz 1: 89.00
-Quiz 2: 88.00
-Activity: 0.00
-Average: 59.00
+Name: Jerick burito
+Quiz 1: 0.00
+Quiz 2: 89.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 0.00
+Average: 11.12
 
 ================
 
 ID: 2
-Name: Jyro Batumbakal
+Name: Borlio hahaha
 Quiz 1: 0.00
-Quiz 2: 89.00
-Activity: 0.00
-Average: 29.67
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 89.00
+Average: 11.12
+
+================
+
+ID: 3
+Name: 23312 312
+Quiz 1: 0.00
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 0.00
+Average: 0.00
+
+================
+
+ID: 4
+Name: charles Vincen asdawrw
+Quiz 1: 0.00
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 89.00
+Project: 89.00
+Average: 22.25
+
+================
+
+ID: 5
+Name: 231eda2
+Quiz 1: 0.00
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 0.00
+Average: 0.00
 
 ================
