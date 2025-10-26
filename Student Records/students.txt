@@ -1,0 +1,11 @@
+Total Students: 1
+
+
+ID: 1
+Name: John Jerick Borlio
+Quiz 1: 89.00
+Quiz 2: 88.00
+Activity: 0.00
+Average: 59.00
+
+================
