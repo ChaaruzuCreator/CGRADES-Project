@@ -339,6 +339,7 @@ int main() {
     loadFromFile();
     
     while (1) {
+    enableANSI();
         const char *banner =
         "\n"
 GREEN"\t    .::      .::::   .:::::::          .:       .:::::    .::::::::  .:: ::  \n"
