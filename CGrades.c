@@ -124,7 +124,7 @@ void addStudent() {
         printf("| %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %6.2f | %7.2f\n",
                s.quiz1, s.quiz2, s.quiz3, s.activity1, s.activity2, s.activity3, s.examination, s.project, currentAvg);
         
-        printf("\nWhat should you record?\n\n");
+        printf(YELLOW "\nWhat should you record?\n\n" HAGGANGDITO);
 
         printf(YELLOW"[1] Quiz 1  [4] Activity 1  [7] Examination\n"HAGGANGDITO);
         printf("[2] Quiz 2  [5] Activity 2  [8] Project\n");
