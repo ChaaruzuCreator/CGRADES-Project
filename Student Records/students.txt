@@ -1,4 +1,4 @@
-Total Students: 5
+Total Students: 8
 
 
 ID: 1
@@ -59,6 +59,48 @@ Average: 22.25
 
 ID: 5
 Name: 231eda2
+Quiz 1: 0.00
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 0.00
+Average: 0.00
+
+================
+
+ID: 6
+Name: 1
+Quiz 1: 0.00
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 0.00
+Average: 0.00
+
+================
+
+ID: 7
+Name: 1
+Quiz 1: 0.00
+Quiz 2: 0.00
+Quiz 3: 0.00
+Activity 1: 0.00
+Activity 2: 0.00
+Activity 3: 0.00
+Examination: 0.00
+Project: 0.00
+Average: 0.00
+
+================
+
+ID: 8
+Name: 1
 Quiz 1: 0.00
 Quiz 2: 0.00
 Quiz 3: 0.00
