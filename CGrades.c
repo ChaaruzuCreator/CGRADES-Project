@@ -860,16 +860,16 @@ BHRED"\t                         |--- BY BSEMC 1-B ---|                         
                 break;
             case 0:
                 printf(GRN"\n Proposed by: EMC/1/B\n"HAGGANGDITO);
-                printf(" Leader:  Charles Vincent Razon\n");
-                printf(" Members: John Jerick Borlio\n");
-                printf("          Gabriel Yam-id Abria\n");
-                printf("          Takumi Yoshiga\n");
-                printf("          Mark Denver Gerona Abenes\n");
+                printf(HRED" Leader:"HAGGANGDITO HWHT"  Charles Vincent Razon\n"HAGGANGDITO);
+                printf(HBLU" Members:"HAGGANGDITO HWHT" John Jerick Borlio\n"HAGGANGDITO);
+                printf(HWHT"          Gabriel Yam-id Abria\n"HAGGANGDITO);
+                printf(HWHT"          Takumi Yoshiga\n"HAGGANGDITO);
+                printf(HWHT"          Mark Denver Gerona Abenes\n"HAGGANGDITO);
                 printf(GRN"\n Di pa approved by (T-T):\n"HAGGANGDITO);
-                printf(" Genalyn D. Villafuerte\n");
-                printf(" EMC Faculty\n\n");
-                printf("THANK YOU FOR USING CGRADES. Goodbye!\n");
-                printf(HBLK"Press Enter to exit...");
+                printf(HWHT" Genalyn D. Villafuerte\n"HAGGANGDITO);
+                printf(HWHT" EMC Faculty\n\n"HAGGANGDITO);
+                printf(BHMAG"THANK YOU FOR USING CGRADES. Goodbye!\n"HAGGANGDITO);
+                printf(HBLK"\nPress Enter to exit...");
                 getchar();
                 return 0;
             default:
