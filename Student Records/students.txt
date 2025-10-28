@@ -1,11 +1,11 @@
-Total Students: 12
+Total Students: 9
 
 
 ID: 1
 Name: Jerick burito
 Grade: 0
 Section: 
-Quiz 1:      0.00
+Quiz 1:      100.00
 Quiz 2:      89.00
 Quiz 3:      0.00
 Activity 1:  0.00
@@ -13,7 +13,7 @@ Activity 2:  0.00
 Activity 3:  0.00
 Examination: 0.00
 Project:     0.00
-Average:     11.12
+Average:     23.62
 
 ================
 
@@ -34,10 +34,10 @@ Average:     0.00
 ================
 
 ID: 3
-Name: 23312 312
-Grade: 0
-Section: 
-Quiz 1:      0.00
+Name: Kurt Kubian
+Grade: 12
+Section: 1
+Quiz 1:      100.00
 Quiz 2:      0.00
 Quiz 3:      0.00
 Activity 1:  0.00
@@ -45,39 +45,7 @@ Activity 2:  0.00
 Activity 3:  0.00
 Examination: 0.00
 Project:     0.00
-Average:     0.00
-
-================
-
-ID: 4
-Name: charles Vincen asdawrw
-Grade: 0
-Section: 
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 89.00
-Project:     89.00
-Average:     22.25
-
-================
-
-ID: 5
-Name: 231eda2
-Grade: 0
-Section: 
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 0.00
-Project:     0.00
-Average:     0.00
+Average:     12.50
 
 ================
 
@@ -98,34 +66,18 @@ Average:     0.00
 ================
 
 ID: 7
-Name: 1
+Name: Ronald D. MaCabangon
 Grade: 0
 Section: 
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 0.00
-Project:     0.00
-Average:     0.00
-
-================
-
-ID: 8
-Name: sadasd asd
-Grade: 2
-Section: 9
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 0.00
-Project:     0.00
-Average:     0.00
+Quiz 1:      93.99
+Quiz 2:      99.00
+Quiz 3:      15.00
+Activity 1:  30.00
+Activity 2:  83.00
+Activity 3:  29.00
+Examination: 97.00
+Project:     100.00
+Average:     68.37
 
 ================
 
@@ -133,22 +85,6 @@ ID: 9
 Name: Never a frown
 Grade: 0
 Section: 
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 0.00
-Project:     0.00
-Average:     0.00
-
-================
-
-ID: 10
-Name: dsada
-Grade: 2
-Section: B
 Quiz 1:      0.00
 Quiz 2:      0.00
 Quiz 3:      0.00
@@ -190,5 +126,21 @@ Activity 3:  0.00
 Examination: 0.00
 Project:     0.00
 Average:     0.00
+
+================
+
+ID: 12
+Name: Bensean Batumbakal
+Grade: 12
+Section: 2
+Quiz 1:      1.00
+Quiz 2:      1.00
+Quiz 3:      1.00
+Activity 1:  1.00
+Activity 2:  100.00
+Activity 3:  50.00
+Examination: 97.00
+Project:     100.00
+Average:     43.88
 
 ================

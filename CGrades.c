@@ -188,7 +188,7 @@ void addStudent() {
 
     printf(BCYN"=== ADDING NEW STUDENT ===\n\n"HAGGANGDITO);
     
-    printf(BCYN"Enter student name (0 to exit)"HAGGANGDITO": ");
+    printf(HYEL"Enter student name (0 to exit)"HAGGANGDITO": ");
     fgets(s.name, MAX_NAME, stdin);
     s.name[strcspn(s.name, "\n")] = 0;
     if (strlen(s.name) == 0 || strcmp(s.name, "0") == 0) {
@@ -198,7 +198,7 @@ void addStudent() {
 
     
     do {
-        printf(BCYN"Enter grade level (1-12)"HAGGANGDITO": ");
+        printf(HYEL"Enter grade level (1-12)"HAGGANGDITO": ");
         if (scanf("%d", &s.grade) != 1) {
             int c; while ((c = getchar()) != '\n' && c != EOF) {}
             s.grade = 0;
@@ -209,7 +209,7 @@ void addStudent() {
         }
     } while (s.grade < 1 || s.grade > 12);
 
-    printf(BCYN"Enter section"HAGGANGDITO": ");
+    printf(HYEL"Enter section"HAGGANGDITO": ");
     fgets(s.section, sizeof(s.section), stdin);
     s.section[strcspn(s.section, "\n")] = 0;
 
@@ -219,7 +219,7 @@ void addStudent() {
     int continueAdding = 1;
     
     while (continueAdding) {
-    printf(BCYN"\nSTUDENT:"HAGGANGDITO " %s " BCYN"|"HAGGANGDITO " Grade: %d " BCYN"|"HAGGANGDITO " Section: %s\n\n", s.name, s.grade, s.section);
+    printf(UGRN"\nSTUDENT:"HAGGANGDITO " %s " RED"|"HAGGANGDITO " Grade: %d " RED"|"HAGGANGDITO " Section: %s\n\n", s.name, s.grade, s.section);
         
         // Calculate current average
         float currentAvg = (s.quiz1 + s.quiz2 + s.quiz3 + s.activity1 + s.activity2 + s.activity3 + s.examination + s.project) / 8.0;
@@ -241,7 +241,7 @@ void addStudent() {
 
         printf(YEL"[Y]"HAGGANGDITO GRN" Finish and Save\n"HAGGANGDITO);
         printf(YEL"[N]"HAGGANGDITO HRED" Cancel\n\n"HAGGANGDITO);
-        printf(BCYN"Choose: "HAGGANGDITO);
+        printf(HYEL"Choose: "HAGGANGDITO);
         scanf(" %c", &recordChoice);
         getchar();
         system("cls");
@@ -250,12 +250,12 @@ void addStudent() {
             case '1':
             case 1:
                 printf(BCYN"=== ENTERING QUIZ 1 ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Quiz 1 score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Quiz 1 score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.quiz1);
                 while (s.quiz1 < 0 || s.quiz1 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Quiz 1 score (0-100): ");
+                    printf(HYEL"Enter Quiz 1 score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.quiz1);
                 }
                 printf(GRN "Quiz 1 saved: %.2f\n" HAGGANGDITO, s.quiz1);
@@ -268,12 +268,12 @@ void addStudent() {
             case '2':
             case 2:
                 printf(BCYN"=== ENTERING QUIZ 2 ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Quiz 2 score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Quiz 2 score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.quiz2);
                 while (s.quiz2 < 0 || s.quiz2 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Quiz 2 score (0-100): ");
+                    printf(HYEL"Enter Quiz 2 score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.quiz2);
                 }
                 printf(GRN "Quiz 2 saved: %.2f\n" HAGGANGDITO, s.quiz2);
@@ -286,12 +286,12 @@ void addStudent() {
             case '3':
             case 3:
                 printf(BCYN"=== ENTERING QUIZ 3 ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Quiz 3 score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Quiz 3 score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.quiz3);
                 while (s.quiz3 < 0 || s.quiz3 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Quiz 3 score (0-100): ");
+                    printf(HYEL"Enter Quiz 3 score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.quiz3);
                 }
                 printf(GRN "Quiz 3 saved: %.2f\n" HAGGANGDITO, s.quiz3);
@@ -304,12 +304,12 @@ void addStudent() {
             case '4':
             case 4:
                 printf(BCYN"=== ENTERING ACTIVITY 1 ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Activity 1 score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Activity 1 score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.activity1);
                 while (s.activity1 < 0 || s.activity1 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Activity 1 score (0-100): ");
+                    printf(HYEL"Enter Activity 1 score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.activity1);
                 }
                 printf(GRN "Activity 1 saved: %.2f\n" HAGGANGDITO, s.activity1);
@@ -322,12 +322,12 @@ void addStudent() {
             case '5':
             case 5:
                 printf(BCYN"=== ENTERING ACTIVITY 2 ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
                 printf("Enter Activity 2 score (0-100): ");
                 scanf("%f", &s.activity2);
                 while (s.activity2 < 0 || s.activity2 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Activity 2 score (0-100): ");
+                    printf(HYEL"Enter Activity 2 score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.activity2);
                 }
                 printf(GRN "Activity 2 saved: %.2f\n" HAGGANGDITO, s.activity2);
@@ -340,12 +340,12 @@ void addStudent() {
             case '6':
             case 6:
                 printf(BCYN"=== ENTERING ACTIVITY 3 ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Activity 3 score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Activity 3 score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.activity3);
                 while (s.activity3 < 0 || s.activity3 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Activity 3 score (0-100): ");
+                    printf(HYEL"Enter Activity 3 score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.activity3);
                 }
                 printf(GRN "Activity 3 saved: %.2f\n" HAGGANGDITO, s.activity3);
@@ -358,12 +358,12 @@ void addStudent() {
             case '7':
             case 7:
                 printf(BCYN"=== ENTERING EXAMINATION ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Examination score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Examination score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.examination);
                 while (s.examination < 0 || s.examination > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Examination score (0-100): ");
+                    printf(HYEL"Enter Examination score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.examination);
                 }
                 printf(GRN "Examination saved: %.2f\n" HAGGANGDITO, s.examination);
@@ -376,12 +376,12 @@ void addStudent() {
             case '8':
             case 8:
                 printf(BCYN"=== ENTERING PROJECT ===\n\n"HAGGANGDITO);
-                printf("Name: %s\n", s.name);
-                printf("Enter Project score (0-100): ");
+                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Project score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.project);
                 while (s.project < 0 || s.project > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf("Enter Project score (0-100): ");
+                    printf(HYEL"Enter Project score (0-100): "HAGGANGDITO);
                     scanf("%f", &s.project);
                 }
                 printf(GRN "Project saved: %.2f\n" HAGGANGDITO, s.project);
@@ -404,7 +404,7 @@ void addStudent() {
 
                 printf(BCYN"=== EDIT STUDENT INFORMATION ===\n\n"HAGGANGDITO);
 
-                printf("Name [%s]: ", s.name);
+                printf(HYEL"Name ("HAGGANGDITO"%s"HYEL"):"HAGGANGDITO" ", s.name);
                 fgets(buffer, sizeof(buffer), stdin);
                 buffer[strcspn(buffer, "\n")] = 0;
                 if (strlen(buffer) > 0) {
@@ -413,7 +413,7 @@ void addStudent() {
                 }
 
                 while (1) {
-                    printf("Grade (%d): ", s.grade);
+                    printf(HYEL"Grade ("HAGGANGDITO"%d"HYEL"): "HAGGANGDITO, s.grade);
                     if (scanf("%d", &newGrade) == 1 && newGrade >= 1 && newGrade <= 12) {
                         s.grade = newGrade;
                         break;
@@ -424,7 +424,7 @@ void addStudent() {
                 }
                 getchar();
 
-                printf("Section [%s]: ", s.section);
+                printf(HYEL"Section ("HAGGANGDITO"%s"HYEL"): "HAGGANGDITO, s.section);
                 fgets(sectionBuf, sizeof(sectionBuf), stdin);
                 sectionBuf[strcspn(sectionBuf, "\n")] = 0;
                 if (strlen(sectionBuf) > 0) {
@@ -442,7 +442,7 @@ void addStudent() {
             case 'N':
             case 'n':
                 printf(YEL "Cancelled. Student not added.\n" HAGGANGDITO);
-                printf("Press Enter to continue...");
+                printf(UWHT"Press Enter to continue..."HAGGANGDITO);
                 getchar();
                 system("cls");
                 return;
@@ -501,7 +501,7 @@ void showAllStudents() {
         
         printf(YEL"\n[1]"HAGGANGDITO GRN" Search Student by ID\n"HAGGANGDITO);
         printf(YEL"[0]"HAGGANGDITO HRED" Back to Main Menu\n\n"HAGGANGDITO);
-        printf(BCYN"Choose: "HAGGANGDITO);
+        printf(HYEL"Choose: "HAGGANGDITO);
         
         int choice;
         scanf("%d", &choice);
@@ -511,7 +511,7 @@ void showAllStudents() {
             int searchAgain = 1;
             while (searchAgain) {
                 int id;
-                printf(BCYN"\nEnter student ID (0 to exit) : "HAGGANGDITO);
+                printf(HYEL"\nEnter student ID (0 to exit) : "HAGGANGDITO);
                 scanf("%d", &id);
                 getchar();
                 if (id == 0) {
@@ -570,7 +570,7 @@ void editStudent() {
     printf("\n");
 
     int id;
-    printf(BCYN"Enter student ID to edit (0 to exit): "HAGGANGDITO);
+    printf(HYEL"Enter student ID to edit (0 to exit): "HAGGANGDITO);
     scanf("%d", &id);
     getchar();
     system("cls");
@@ -589,7 +589,7 @@ void editStudent() {
                      students[i].activity1 + students[i].activity2 + students[i].activity3 +
                      students[i].examination + students[i].project) / 8.0f;
 
-          printf(BCYN"\n STUDENT:"HAGGANGDITO " %s " RED"|"HAGGANGDITO " Grade: %d " RED"|"HAGGANGDITO " Section: %s\n\n",
+          printf(UGRN"\nSTUDENT:"HAGGANGDITO " %s " RED"|"HAGGANGDITO " Grade: %d " RED"|"HAGGANGDITO " Section: %s\n\n",
               students[i].name, students[i].grade, students[i].section);
 
           printf(RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-7s\n",
@@ -606,117 +606,117 @@ void editStudent() {
           printf(YEL"[3]"HAGGANGDITO" Quiz 3  "YEL"[6]"HAGGANGDITO" Activity 3                   "RED"|"HAGGANGDITO"   "YEL"[11]"HAGGANGDITO" Section\n\n");
         
           printf(YEL"[0]"HAGGANGDITO GRN" Finish and Save\n\n"HAGGANGDITO);
-          printf(BCYN"Choose: "HAGGANGDITO);
+          printf(HYEL"Choose: "HAGGANGDITO);
                 scanf("%d", &editChoice);
                 system("cls");
                 
                 switch (editChoice) {
                     case 1:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Quiz 1: %.2f\n", students[i].quiz1);
-                        printf("Enter new Quiz 1 score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Quiz 1: "HAGGANGDITO"%.2f\n", students[i].quiz1);
+                        printf(HYEL"Enter new Quiz 1 score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].quiz1);
                         while (students[i].quiz1 < 0 || students[i].quiz1 > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Quiz 1 score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Quiz 1 score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].quiz1);
                         }
                         printf(GRN "Quiz 1 updated: %.2f\n" HAGGANGDITO, students[i].quiz1);
                         break;
                         
                     case 2:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Quiz 2: %.2f\n", students[i].quiz2);
-                        printf("Enter new Quiz 2 score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Quiz 2: "HAGGANGDITO"%.2f\n", students[i].quiz2);
+                        printf(HYEL"Enter new Quiz 2 score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].quiz2);
                         while (students[i].quiz2 < 0 || students[i].quiz2 > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Quiz 2 score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Quiz 2 score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].quiz2);
                         }
                         printf(GRN "Quiz 2 updated: %.2f\n" HAGGANGDITO, students[i].quiz2);
                         break;
                         
                     case 3:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Quiz 3: %.2f\n", students[i].quiz3);
-                        printf("Enter new Quiz 3 score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Quiz 3: "HAGGANGDITO"%.2f\n", students[i].quiz3);
+                        printf(HYEL"Enter new Quiz 3 score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].quiz3);
                         while (students[i].quiz3 < 0 || students[i].quiz3 > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Quiz 3 score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Quiz 3 score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].quiz3);
                         }
                         printf(GRN "Quiz 3 updated: %.2f\n" HAGGANGDITO, students[i].quiz3);
                         break;
                         
                     case 4:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Activity 1: %.2f\n", students[i].activity1);
-                        printf("Enter new Activity 1 score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Activity 1: "HAGGANGDITO"%.2f\n", students[i].activity1);
+                        printf(HYEL"Enter new Activity 1 score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].activity1);
                         while (students[i].activity1 < 0 || students[i].activity1 > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Activity 1 score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Activity 1 score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].activity1);
                         }
                         printf(GRN "Activity 1 updated: %.2f\n" HAGGANGDITO, students[i].activity1);
                         break;
                         
                     case 5:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Activity 2: %.2f\n", students[i].activity2);
-                        printf("Enter new Activity 2 score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Activity 2: "HAGGANGDITO"%.2f\n", students[i].activity2);
+                        printf(HYEL"Enter new Activity 2 score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].activity2);
                         while (students[i].activity2 < 0 || students[i].activity2 > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Activity 2 score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Activity 2 score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].activity2);
                         }
                         printf(GRN "Activity 2 updated: %.2f\n" HAGGANGDITO, students[i].activity2);
                         break;
                         
                     case 6:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Activity 3: %.2f\n", students[i].activity3);
-                        printf("Enter new Activity 3 score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Activity 3: "HAGGANGDITO"%.2f\n", students[i].activity3);
+                        printf(HYEL"Enter new Activity 3 score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].activity3);
                         while (students[i].activity3 < 0 || students[i].activity3 > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Activity 3 score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Activity 3 score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].activity3);
                         }
                         printf(GRN "Activity 3 updated: %.2f\n" HAGGANGDITO, students[i].activity3);
                         break;
                         
                     case 7:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Examination: %.2f\n", students[i].examination);
-                        printf("Enter new Examination score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Examination: "HAGGANGDITO"%.2f\n", students[i].examination);
+                        printf(HYEL"Enter new Examination score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].examination);
                         while (students[i].examination < 0 || students[i].examination > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Examination score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Examination score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].examination);
                         }
                         printf(GRN "Examination updated: %.2f\n" HAGGANGDITO, students[i].examination);
                         break;
                         
                     case 8:
-                        printf("Name: %s\n", students[i].name);
-                        printf("Current Project: %.2f\n", students[i].project);
-                        printf("Enter new Project score (0-100): ");
+                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Project: "HAGGANGDITO"%.2f\n", students[i].project);
+                        printf(HYEL"Enter new Project score (0-100): "HAGGANGDITO);
                         scanf("%f", &students[i].project);
                         while (students[i].project < 0 || students[i].project > 100) {
-                            printf("Invalid score! Please enter a score between 0 and 100.\n");
-                            printf("Enter new Project score (0-100): ");
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
+                            printf(HYEL"Enter new Project score (0-100): "HAGGANGDITO);
                             scanf("%f", &students[i].project);
                         }
                         printf(GRN "Project updated: %.2f\n" HAGGANGDITO, students[i].project);
                         break;
                     case 9:
-                        printf("Current Name: %s\n", students[i].name);
-                        printf("Enter new name: ");
+                        printf(CYN"Current Name: "HAGGANGDITO"%s\n", students[i].name);
+                        printf(HYEL"Enter new name: "HAGGANGDITO);
                         getchar();
                         fgets(students[i].name, MAX_NAME, stdin);
                         students[i].name[strcspn(students[i].name, "\n")] = 0;
@@ -724,8 +724,8 @@ void editStudent() {
                         break;
                     case 10:
                         do {
-                            printf("Current Grade: %d\n", students[i].grade);
-                            printf("Enter new grade level (1-12): ");
+                            printf(CYN"Current Grade: "HAGGANGDITO"%d\n", students[i].grade);
+                            printf(HYEL"Enter new grade level (1-12): "HAGGANGDITO);
                             if (scanf("%d", &students[i].grade) != 1) {
                                 int c; while ((c = getchar()) != '\n' && c != EOF) {}
                                 students[i].grade = 0;
@@ -737,8 +737,8 @@ void editStudent() {
                         printf(GRN "Grade updated to: %d\n" HAGGANGDITO, students[i].grade);
                         break;
                     case 11:
-                        printf("Current Section: %s\n", students[i].section);
-                        printf("Enter new section: ");
+                        printf(CYN"Current Section: "HAGGANGDITO"%s\n", students[i].section);
+                        printf(HYEL"Enter new section: "HAGGANGDITO);
                         getchar();
                         fgets(students[i].section, sizeof(students[i].section), stdin);
                         students[i].section[strcspn(students[i].section, "\n")] = 0;
@@ -758,39 +758,39 @@ void editStudent() {
             getchar();
             calculateAverage(&students[i]);
             saveToFile();
-            printf(GRN "Student updated successfully!\n" HAGGANGDITO);
-                printf("Name: %s\n", students[i].name);
-                printf("Quiz 1: %.2f\n", students[i].quiz1);
-                printf("Quiz 2: %.2f\n", students[i].quiz2);
-                printf("Quiz 3: %.2f\n", students[i].quiz3);
-                printf("Activity 1: %.2f\n", students[i].activity1);
-                printf("Activity 2: %.2f\n", students[i].activity2);
-                printf("Activity 3: %.2f\n", students[i].activity3);
-                printf("Examination: %.2f\n", students[i].examination);
-                printf("Project: %.2f\n", students[i].project);
-                printf("Average: %.2f\n", students[i].average);
-            printf("\nPress Enter to continue: ");
+            printf(GRN "Student updated successfully!\n\n" HAGGANGDITO);
+                printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
+                printf(CYN"Quiz 1: "HAGGANGDITO"%.2f\n", students[i].quiz1);
+                printf(CYN"Quiz 2: "HAGGANGDITO"%.2f\n", students[i].quiz2);
+                printf(CYN"Quiz 3: "HAGGANGDITO"%.2f\n", students[i].quiz3);
+                printf(CYN"Activity 1: "HAGGANGDITO"%.2f\n", students[i].activity1);
+                printf(CYN"Activity 2: "HAGGANGDITO"%.2f\n", students[i].activity2);
+                printf(CYN"Activity 3: "HAGGANGDITO"%.2f\n", students[i].activity3);
+                printf(CYN"Examination: "HAGGANGDITO"%.2f\n", students[i].examination);
+                printf(CYN"Project: "HAGGANGDITO"%.2f\n", students[i].project);
+                printf(CYN"Average: "HAGGANGDITO"%.2f\n", students[i].average);
+            printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
             getchar();
             system("cls");
             return;
         }
     }
-    printf("Student not found.\n");
+    printf(RED"Student not found.\n"HAGGANGDITO);
 }
 
 //===========================================================================================================================
 
 void deleteStudent() {
     if (studentCount == 0) {
-        printf("No students to delete.\n");
+        printf(RED"No students to delete.\n"HAGGANGDITO);
         return;
     }
-    printf(RED"=== DELETE STUDENT ===\n\n"HAGGANGDITO);
+    printf(BCYN"=== DELETE STUDENT ===\n\n"HAGGANGDITO);
     printStudentTable();
     printf("\n");
     
     int id;
-    printf("Enter student ID to delete: ");
+    printf(HYEL"Enter student ID to delete: "HAGGANGDITO);
     scanf("%d", &id);
     getchar();
     
@@ -800,13 +800,13 @@ void deleteStudent() {
                 students[j] = students[j + 1];
             }
             studentCount--;
-            printf("Student deleted successfully.\n");
+            printf(GRN"\nStudent deleted successfully.\n\n"HAGGANGDITO);
             saveToFile();
             return;
         }
     }
     system("cls");
-    printf(RED"Student not found.\n\a");
+    printf(RED"Student not found.\n\a"HAGGANGDITO);
     
 }
 
@@ -840,7 +840,7 @@ BHRED"\t                         |--- BY BSEMC 1-B ---|                         
         printf(YEL"  [4]"HAGGANGDITO" Delete Student\n");
         printf(YEL"  [0]"HAGGANGDITO" Exit\n\n");
         
-        printf(BCYN" Enter choice: "HAGGANGDITO);
+        printf(HYEL" Enter choice: "HAGGANGDITO);
         scanf("%d", &choice);
         getchar();
         system("cls");
