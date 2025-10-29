@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <conio.h>
 #include "Color.h"
 
@@ -10,8 +11,8 @@
 typedef struct {
     int id;
     char name[MAX_NAME];
-    int grade;              // New: grade level (e.g., 1-12)
-    char section[20];       // New: section label (e.g., "A", "BSEMC-1B")
+    int grade;              
+    char section[20];       
     float quiz1;
     float quiz2;
     float quiz3;
@@ -25,6 +26,30 @@ typedef struct {
 
 Student students[MAX_STUDENTS];
 int studentCount = 0;
+
+static int isAlphaSpace(const char *text) {
+    if (text == NULL || *text == '\0') {
+        return 0;
+    }
+    for (const unsigned char *p = (const unsigned char *)text; *p; ++p) {
+        if (!isalpha(*p) && *p != ' ') {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+static int isAlnumSpace(const char *text) {
+    if (text == NULL || *text == '\0') {
+        return 0;
+    }
+    for (const unsigned char *p = (const unsigned char *)text; *p; ++p) {
+        if (!isalnum(*p) && *p != ' ') {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 static void printStudentTable(void) {
     printf(" "GRN"%-4s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-25s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-5s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-8s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-7s"HAGGANGDITO"\n",
@@ -144,7 +169,15 @@ void loadFromFile() {
 }
 
 void calculateAverage(Student* s) {
-    s->average = (s->quiz1 + s->quiz2 + s->quiz3 + s->activity1 + s->activity2 + s->activity3 + s->examination + s->project) / 8.0;
+    const float quizActivityWeight = 0.20f;
+    const float projectWeight = 0.30f;
+    const float examWeight = 0.50f;
+
+    float quizActivityAverage = (s->quiz1 + s->quiz2 + s->quiz3 + s->activity1 + s->activity2 + s->activity3) / 6.0f;
+
+    s->average = (quizActivityAverage * quizActivityWeight) +
+                 (s->project * projectWeight) +
+                 (s->examination * examWeight);
 }
 
 //===========================================================================================================================
@@ -188,12 +221,21 @@ void addStudent() {
 
     printf(BCYN"=== ADDING NEW STUDENT ===\n\n"HAGGANGDITO);
     
-    printf(HYEL"Enter student name (0 to exit)"HAGGANGDITO": ");
-    fgets(s.name, MAX_NAME, stdin);
-    s.name[strcspn(s.name, "\n")] = 0;
-    if (strlen(s.name) == 0 || strcmp(s.name, "0") == 0) {
-        system("cls");
-        return;
+    while (1) {
+        printf(HYEL"Enter student name (0 to exit)"HAGGANGDITO": ");
+        if (!fgets(s.name, MAX_NAME, stdin)) {
+            return;
+        }
+        s.name[strcspn(s.name, "\n")] = 0;
+        if (strcmp(s.name, "0") == 0 || s.name[0] == '\0') {
+            system("cls");
+            return;
+        }
+        if (!isAlphaSpace(s.name)) {
+            printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
+            continue;
+        }
+        break;
     }
 
     
@@ -209,9 +251,22 @@ void addStudent() {
         }
     } while (s.grade < 1 || s.grade > 12);
 
-    printf(HYEL"Enter section"HAGGANGDITO": ");
-    fgets(s.section, sizeof(s.section), stdin);
-    s.section[strcspn(s.section, "\n")] = 0;
+    while (1) {
+        printf(HYEL"Enter section"HAGGANGDITO": ");
+        if (!fgets(s.section, sizeof(s.section), stdin)) {
+            return;
+        }
+        s.section[strcspn(s.section, "\n")] = 0;
+        if (s.section[0] == '\0') {
+            printf(RED"Section cannot be empty.\n"HAGGANGDITO);
+            continue;
+        }
+        if (!isAlnumSpace(s.section)) {
+            printf(RED"Section must contain only letters, numbers, and spaces.\n"HAGGANGDITO);
+            continue;
+        }
+        break;
+    }
 
     system("cls");
 
@@ -219,11 +274,11 @@ void addStudent() {
     int continueAdding = 1;
     
     while (continueAdding) {
-    printf(UGRN"\nSTUDENT:"HAGGANGDITO " %s " RED"|"HAGGANGDITO " Grade: %d " RED"|"HAGGANGDITO " Section: %s\n\n", s.name, s.grade, s.section);
-        
-        // Calculate current average
-        float currentAvg = (s.quiz1 + s.quiz2 + s.quiz3 + s.activity1 + s.activity2 + s.activity3 + s.examination + s.project) / 8.0;
-        
+        calculateAverage(&s);
+        float currentAvg = s.average;
+
+        printf(UGRN"\nSTUDENT:"HAGGANGDITO " %s " RED"|"HAGGANGDITO " Grade: %d " RED"|"HAGGANGDITO " Section: %s\n\n", s.name, s.grade, s.section);
+
         // Print table header
         printf(RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-6s "RED"|"HAGGANGDITO" %-7s\n", 
                "Quiz1", "Quiz2", "Quiz3", "Act1", "Act2", "Act3", "Exam", "Proj", "Average");
@@ -404,12 +459,22 @@ void addStudent() {
 
                 printf(BCYN"=== EDIT STUDENT INFORMATION ===\n\n"HAGGANGDITO);
 
-                printf(HYEL"Name ("HAGGANGDITO"%s"HYEL"):"HAGGANGDITO" ", s.name);
-                fgets(buffer, sizeof(buffer), stdin);
-                buffer[strcspn(buffer, "\n")] = 0;
-                if (strlen(buffer) > 0) {
+                while (1) {
+                    printf(HYEL"Name ("HAGGANGDITO"%s"HYEL"):"HAGGANGDITO" ", s.name);
+                    if (!fgets(buffer, sizeof(buffer), stdin)) {
+                        continue;
+                    }
+                    buffer[strcspn(buffer, "\n")] = 0;
+                    if (buffer[0] == '\0') {
+                        break;
+                    }
+                    if (!isAlphaSpace(buffer)) {
+                        printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
+                        continue;
+                    }
                     strncpy(s.name, buffer, MAX_NAME);
                     s.name[MAX_NAME - 1] = '\0';
+                    break;
                 }
 
                 while (1) {
@@ -424,12 +489,22 @@ void addStudent() {
                 }
                 getchar();
 
-                printf(HYEL"Section ("HAGGANGDITO"%s"HYEL"): "HAGGANGDITO, s.section);
-                fgets(sectionBuf, sizeof(sectionBuf), stdin);
-                sectionBuf[strcspn(sectionBuf, "\n")] = 0;
-                if (strlen(sectionBuf) > 0) {
+                while (1) {
+                    printf(HYEL"Section ("HAGGANGDITO"%s"HYEL"): "HAGGANGDITO, s.section);
+                    if (!fgets(sectionBuf, sizeof(sectionBuf), stdin)) {
+                        continue;
+                    }
+                    sectionBuf[strcspn(sectionBuf, "\n")] = 0;
+                    if (sectionBuf[0] == '\0') {
+                        break;
+                    }
+                    if (!isAlnumSpace(sectionBuf)) {
+                        printf(RED"Section must contain only letters, numbers, and spaces.\n"HAGGANGDITO);
+                        continue;
+                    }
                     strncpy(s.section, sectionBuf, sizeof(s.section));
                     s.section[sizeof(s.section) - 1] = '\0';
+                    break;
                 }
 
                 printf(GRN"\nInformation updated.\n"HAGGANGDITO);
@@ -540,6 +615,7 @@ void showAllStudents() {
                         getchar();
                         found = 1;
                         searchAgain = 0;
+                        system("cls");
                         break;
                     }
                 }
@@ -584,10 +660,8 @@ void editStudent() {
             int continueEditing = 1;
             
          while (continueEditing) {
-          
-          float currentAvg = (students[i].quiz1 + students[i].quiz2 + students[i].quiz3 +
-                     students[i].activity1 + students[i].activity2 + students[i].activity3 +
-                     students[i].examination + students[i].project) / 8.0f;
+          calculateAverage(&students[i]);
+          float currentAvg = students[i].average;
 
           printf(UGRN"\nSTUDENT:"HAGGANGDITO " %s " RED"|"HAGGANGDITO " Grade: %d " RED"|"HAGGANGDITO " Section: %s\n\n",
               students[i].name, students[i].grade, students[i].section);
@@ -714,14 +788,32 @@ void editStudent() {
                         }
                         printf(GRN "Project updated: %.2f\n" HAGGANGDITO, students[i].project);
                         break;
-                    case 9:
+                    case 9: {
+                        char buffer[MAX_NAME];
                         printf(CYN"Current Name: "HAGGANGDITO"%s\n", students[i].name);
                         printf(HYEL"Enter new name: "HAGGANGDITO);
                         getchar();
-                        fgets(students[i].name, MAX_NAME, stdin);
-                        students[i].name[strcspn(students[i].name, "\n")] = 0;
-                        printf(GRN "Name updated to: %s\n" HAGGANGDITO, students[i].name);
+                        while (1) {
+                            if (!fgets(buffer, sizeof(buffer), stdin)) {
+                                continue;
+                            }
+                            buffer[strcspn(buffer, "\n")] = 0;
+                            if (buffer[0] == '\0') {
+                                printf(YEL"Name unchanged.\n"HAGGANGDITO);
+                                break;
+                            }
+                            if (!isAlphaSpace(buffer)) {
+                                printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
+                                printf(HYEL"Enter new name: "HAGGANGDITO);
+                                continue;
+                            }
+                            strncpy(students[i].name, buffer, MAX_NAME);
+                            students[i].name[MAX_NAME - 1] = '\0';
+                            printf(GRN"Name updated to: %s\n"HAGGANGDITO, students[i].name);
+                            break;
+                        }
                         break;
+                    }
                     case 10:
                         do {
                             printf(CYN"Current Grade: "HAGGANGDITO"%d\n", students[i].grade);
@@ -736,14 +828,32 @@ void editStudent() {
                         } while (students[i].grade < 1 || students[i].grade > 12);
                         printf(GRN "Grade updated to: %d\n" HAGGANGDITO, students[i].grade);
                         break;
-                    case 11:
+                    case 11: {
+                        char buffer[sizeof(students[i].section)];
                         printf(CYN"Current Section: "HAGGANGDITO"%s\n", students[i].section);
                         printf(HYEL"Enter new section: "HAGGANGDITO);
                         getchar();
-                        fgets(students[i].section, sizeof(students[i].section), stdin);
-                        students[i].section[strcspn(students[i].section, "\n")] = 0;
-                        printf(GRN "Section updated to: %s\n" HAGGANGDITO, students[i].section);
+                        while (1) {
+                            if (!fgets(buffer, sizeof(buffer), stdin)) {
+                                continue;
+                            }
+                            buffer[strcspn(buffer, "\n")] = 0;
+                            if (buffer[0] == '\0') {
+                                printf(YEL"Section unchanged.\n"HAGGANGDITO);
+                                break;
+                            }
+                            if (!isAlnumSpace(buffer)) {
+                                printf(RED"Section must contain only letters, numbers, and spaces.\n"HAGGANGDITO);
+                                printf(HYEL"Enter new section: "HAGGANGDITO);
+                                continue;
+                            }
+                            strncpy(students[i].section, buffer, sizeof(students[i].section));
+                            students[i].section[sizeof(students[i].section) - 1] = '\0';
+                            printf(GRN"Section updated to: %s\n"HAGGANGDITO, students[i].section);
+                            break;
+                        }
                         break;
+                    }
                         
                     case 0:
                         continueEditing = 0;
@@ -793,14 +903,15 @@ void deleteStudent() {
     printf(HYEL"Enter student ID to delete: "HAGGANGDITO);
     scanf("%d", &id);
     getchar();
+    system("cls");
     
     for (int i = 0; i < studentCount; i++) {
         if (students[i].id == id) {
+            printf(GRN"\nStudent deleted successfully: "HAGGANGDITO"ID %d | Name: %s\n\n", students[i].id, students[i].name);
             for (int j = i; j < studentCount - 1; j++) {
                 students[j] = students[j + 1];
             }
             studentCount--;
-            printf(GRN"\nStudent deleted successfully.\n\n"HAGGANGDITO);
             saveToFile();
             return;
         }
