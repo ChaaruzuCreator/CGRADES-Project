@@ -49,6 +49,22 @@ Average:     12.50
 
 ================
 
+ID: 4
+Name: jeana cole
+Grade: 10
+Section: 2
+Quiz 1:      87.00
+Quiz 2:      66.00
+Quiz 3:      69.00
+Activity 1:  55.00
+Activity 2:  76.00
+Activity 3:  78.00
+Examination: 87.00
+Project:     99.00
+Average:     77.12
+
+================
+
 ID: 6
 Name: charels you seek
 Grade: 0
@@ -113,24 +129,8 @@ Average:     0.00
 
 ================
 
-ID: 11
-Name: charles fasdsa
-Grade: 2
-Section: b
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 0.00
-Project:     0.00
-Average:     0.00
-
-================
-
 ID: 12
-Name: Bensean Batumbakal
+Name: Bensean lang sakalam
 Grade: 12
 Section: 2
 Quiz 1:      1.00

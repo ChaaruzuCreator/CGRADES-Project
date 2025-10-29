@@ -323,7 +323,7 @@ void addStudent() {
             case 5:
                 printf(BCYN"=== ENTERING ACTIVITY 2 ===\n\n"HAGGANGDITO);
                 printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf("Enter Activity 2 score (0-100): ");
+                printf(HYEL"Enter Activity 2 score (0-100): "HAGGANGDITO);
                 scanf("%f", &s.activity2);
                 while (s.activity2 < 0 || s.activity2 > 100) {
                     printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
