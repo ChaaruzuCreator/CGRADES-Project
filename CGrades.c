@@ -95,6 +95,7 @@ void saveToFile() {
     }
     fprintf(file, "Total Students: %d\n\n", studentCount);
     for (int i = 0; i < studentCount; i++) {
+        const char *status = hasIncompleteScores(&students[i]) ? "INC" : "OK";
         fprintf(file, "\nID: %d\n", students[i].id);  
         fprintf(file, "Name: %s\n", students[i].name);    
         fprintf(file, "Grade: %d\n", students[i].grade);
@@ -108,6 +109,7 @@ void saveToFile() {
         fprintf(file, "Examination: %.2f\n", students[i].examination);
         fprintf(file, "Project:     %.2f\n", students[i].project);
         fprintf(file, "Average:     %.2f\n", students[i].average);
+        fprintf(file, "Status:      %s\n", status);
         if (i < studentCount - 1) {
             fprintf(file, "");
         }
