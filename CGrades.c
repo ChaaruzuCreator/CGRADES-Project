@@ -51,14 +51,21 @@ static int isAlnumSpace(const char *text) {
     return 1;
 }
 
+static int hasIncompleteScores(const Student *s) {
+    return (s->quiz1 == 0.0f || s->quiz2 == 0.0f || s->quiz3 == 0.0f ||
+            s->activity1 == 0.0f || s->activity2 == 0.0f || s->activity3 == 0.0f ||
+            s->examination == 0.0f || s->project == 0.0f);
+}
+
 static void printStudentTable(void) {
-    printf(" "GRN"%-4s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-25s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-5s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-8s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-7s"HAGGANGDITO"\n",
+    printf(" "GRN"%-4s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-25s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-5s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-8s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-7s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO"\n",
            "ID", "Name", "Grade", "Section", "Quiz1", "Quiz2", "Quiz3",
-           "Act1", "Act2", "Act3", "Exam", "Proj", "Average");
-    printf(RED" -----+---------------------------+-------+----------+--------+--------+--------+--------+--------+--------+--------+--------+---------\n"HAGGANGDITO);
+           "Act1", "Act2", "Act3", "Exam", "Proj", "Average", "Status");
+    printf(RED" -----+---------------------------+-------+----------+--------+--------+--------+--------+--------+--------+--------+--------+---------+--------\n"HAGGANGDITO);
 
     for (int i = 0; i < studentCount; i++) {
-        printf(" "GRN"%-4d"HAGGANGDITO" "RED"|"HAGGANGDITO" %-25s "RED"|"HAGGANGDITO" %-5d "RED"|"HAGGANGDITO" %-8s "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f\n",
+        const char *status = hasIncompleteScores(&students[i]) ? HYEL"INC"HAGGANGDITO : GRN"OK"HAGGANGDITO;
+        printf(" "GRN"%-4d"HAGGANGDITO" "RED"|"HAGGANGDITO" %-25s "RED"|"HAGGANGDITO" %-5d "RED"|"HAGGANGDITO" %-8s "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f "RED"|"HAGGANGDITO" %s\n",
                students[i].id,
                students[i].name,
                students[i].grade,
@@ -71,7 +78,8 @@ static void printStudentTable(void) {
                students[i].activity3,
                students[i].examination,
                students[i].project,
-               students[i].average);
+               students[i].average,
+               status);
     }
 }
 //===========================================================================================================================
@@ -168,6 +176,8 @@ void loadFromFile() {
     fclose(file);
 }
 
+//===========================================================================================================================
+
 void calculateAverage(Student* s) {
     const float quizActivityWeight = 0.20f;
     const float projectWeight = 0.30f;
@@ -227,9 +237,13 @@ void addStudent() {
             return;
         }
         s.name[strcspn(s.name, "\n")] = 0;
-        if (strcmp(s.name, "0") == 0 || s.name[0] == '\0') {
+        if (strcmp(s.name, "0") == 0) {
             system("cls");
             return;
+        }
+        if (s.name[0] == '\0') {
+            printf(RED"Please enter something!\n"HAGGANGDITO);
+            continue;
         }
         if (!isAlphaSpace(s.name)) {
             printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
@@ -252,7 +266,7 @@ void addStudent() {
     } while (s.grade < 1 || s.grade > 12);
 
     while (1) {
-        printf(HYEL"Enter section"HAGGANGDITO": ");
+        printf(HYEL"Enter Section (one letter only)"HAGGANGDITO": ");
         if (!fgets(s.section, sizeof(s.section), stdin)) {
             return;
         }
@@ -261,10 +275,12 @@ void addStudent() {
             printf(RED"Section cannot be empty.\n"HAGGANGDITO);
             continue;
         }
-        if (!isAlnumSpace(s.section)) {
-            printf(RED"Section must contain only letters, numbers, and spaces.\n"HAGGANGDITO);
+        if (s.section[1] != '\0' || !isalpha((unsigned char)s.section[0])) {
+            printf(RED"Section must be a single letter (A-Z).\n"HAGGANGDITO);
             continue;
         }
+        s.section[0] = (char)toupper((unsigned char)s.section[0]);
+        s.section[1] = '\0';
         break;
     }
 
@@ -498,12 +514,14 @@ void addStudent() {
                     if (sectionBuf[0] == '\0') {
                         break;
                     }
-                    if (!isAlnumSpace(sectionBuf)) {
-                        printf(RED"Section must contain only letters, numbers, and spaces.\n"HAGGANGDITO);
+                    if (sectionBuf[1] != '\0' || !isalpha((unsigned char)sectionBuf[0])) {
+                        printf(RED"Section must be a single letter (A-Z).\n"HAGGANGDITO);
                         continue;
                     }
                     strncpy(s.section, sectionBuf, sizeof(s.section));
                     s.section[sizeof(s.section) - 1] = '\0';
+                    s.section[0] = (char)toupper((unsigned char)s.section[0]);
+                    s.section[1] = '\0';
                     break;
                 }
 
@@ -573,6 +591,8 @@ void showAllStudents() {
     while (1) {
         printf(BHCYN"=== ALL STUDENTS RECORDS ===\n\n"HAGGANGDITO);
         printStudentTable();
+
+        printf(HGRN "\n\n NOTE: " HBLK  "All student records that you added are here, and you can search them using their ID.\n\n"HAGGANGDITO);
         
         printf(YEL"\n[1]"HAGGANGDITO GRN" Search Student by ID\n"HAGGANGDITO);
         printf(YEL"[0]"HAGGANGDITO HRED" Back to Main Menu\n\n"HAGGANGDITO);
@@ -842,13 +862,15 @@ void editStudent() {
                                 printf(YEL"Section unchanged.\n"HAGGANGDITO);
                                 break;
                             }
-                            if (!isAlnumSpace(buffer)) {
-                                printf(RED"Section must contain only letters, numbers, and spaces.\n"HAGGANGDITO);
+                            if (buffer[1] != '\0' || !isalpha((unsigned char)buffer[0])) {
+                                printf(RED"Section must be a single letter (A-Z).\n"HAGGANGDITO);
                                 printf(HYEL"Enter new section: "HAGGANGDITO);
                                 continue;
                             }
                             strncpy(students[i].section, buffer, sizeof(students[i].section));
                             students[i].section[sizeof(students[i].section) - 1] = '\0';
+                            students[i].section[0] = (char)toupper((unsigned char)students[i].section[0]);
+                            students[i].section[1] = '\0';
                             printf(GRN"Section updated to: %s\n"HAGGANGDITO, students[i].section);
                             break;
                         }
@@ -952,7 +974,15 @@ BHRED"\t                         |--- BY BSEMC 1-B ---|                         
         printf(YEL"  [0]"HAGGANGDITO" Exit\n\n");
         
         printf(HYEL" Enter choice: "HAGGANGDITO);
-        scanf("%d", &choice);
+        if (scanf("%d", &choice) != 1) {
+            int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF) {}
+            printf(RED" NOTIFICATION: Please enter numbers only!\a\n"HAGGANGDITO);
+            printf(UWHT"Press Enter to try again..."HAGGANGDITO);
+            getchar();
+            system("cls");
+            continue;
+        }
         getchar();
         system("cls");
         
