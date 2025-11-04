@@ -58,14 +58,14 @@ static int hasIncompleteScores(const Student *s) {
 }
 
 static void printStudentTable(void) {
-    printf(" "GRN"%-4s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-25s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-5s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-8s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-7s"HAGGANGDITO" "RED"|"HAGGANGDITO" "GRN"%-6s"HAGGANGDITO"\n",
+    printf(" " GRN "%-4s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-25s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-5s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-8s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-7s" HAGGANGDITO " " RED "|" HAGGANGDITO " " GRN "%-6s" HAGGANGDITO "\n",
            "ID", "Name", "Grade", "Section", "Quiz1", "Quiz2", "Quiz3",
            "Act1", "Act2", "Act3", "Exam", "Proj", "Average", "Status");
-    printf(RED" -----+---------------------------+-------+----------+--------+--------+--------+--------+--------+--------+--------+--------+---------+--------\n"HAGGANGDITO);
+    printf(RED " -----+---------------------------+-------+----------+--------+--------+--------+--------+--------+--------+--------+--------+---------+--------\n" HAGGANGDITO);
 
     for (int i = 0; i < studentCount; i++) {
-        const char *status = hasIncompleteScores(&students[i]) ? HYEL"INC"HAGGANGDITO : GRN"OK"HAGGANGDITO;
-        printf(" "GRN"%-4d"HAGGANGDITO" "RED"|"HAGGANGDITO" %-25s "RED"|"HAGGANGDITO" %-5d "RED"|"HAGGANGDITO" %-8s "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f "RED"|"HAGGANGDITO" %s\n",
+        const char *status = hasIncompleteScores(&students[i]) ? HYEL "INC" HAGGANGDITO : GRN "OK" HAGGANGDITO;
+        printf(" " GRN "%-4d" HAGGANGDITO " " RED "|" HAGGANGDITO " %-25s " RED "|" HAGGANGDITO " %-5d " RED "|" HAGGANGDITO " %-8s " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %6.2f " RED "|" HAGGANGDITO " %7.2f " RED "|" HAGGANGDITO " %s\n",
                students[i].id,
                students[i].name,
                students[i].grade,
@@ -196,7 +196,7 @@ void calculateAverage(Student* s) {
 
 void addStudent() {
     if (studentCount >= MAX_STUDENTS) {
-        printf(RED"Cannot add more students!\n"HAGGANGDITO);
+        printf(RED"Cannot add more students!\n" HAGGANGDITO);
         return;
     }
     
@@ -216,7 +216,7 @@ void addStudent() {
         candidateId++;
     }
     if (candidateId > MAX_STUDENTS) {
-        printf(RED"Cannot assign new ID. Roster is full.\n"HAGGANGDITO);
+        printf(RED"Cannot assign new ID. Roster is full.\n" HAGGANGDITO);
         return;
     }
     s.id = candidateId;
@@ -231,10 +231,10 @@ void addStudent() {
     s.examination = 0;
     s.project = 0;
 
-    printf(BCYN"=== ADDING NEW STUDENT ===\n\n"HAGGANGDITO);
+    printf(BCYN"=== ADDING NEW STUDENT ===\n\n" HAGGANGDITO);
     
     while (1) {
-        printf(HYEL"Enter student name (0 to exit)"HAGGANGDITO": ");
+        printf(HYEL"Enter student name (0 to exit)" HAGGANGDITO": ");
         if (!fgets(s.name, MAX_NAME, stdin)) {
             return;
         }
@@ -244,11 +244,11 @@ void addStudent() {
             return;
         }
         if (s.name[0] == '\0') {
-            printf(RED"Please enter something!\n"HAGGANGDITO);
+            printf(RED"Please enter something!\n" HAGGANGDITO);
             continue;
         }
         if (!isAlphaSpace(s.name)) {
-            printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
+            printf(RED"Name must contain letters and spaces only.\n" HAGGANGDITO);
             continue;
         }
         break;
@@ -256,29 +256,29 @@ void addStudent() {
 
     
     do {
-        printf(HYEL"Enter grade level (1-12)"HAGGANGDITO": ");
+        printf(HYEL"Enter grade level (1-12)" HAGGANGDITO": ");
         if (scanf("%d", &s.grade) != 1) {
             int c; while ((c = getchar()) != '\n' && c != EOF) {}
             s.grade = 0;
         }
         getchar(); 
         if (s.grade < 1 || s.grade > 12) {
-            printf(RED"Please enter a valid grade between 1 and 12.\n"HAGGANGDITO);
+            printf(RED"Please enter a valid grade between 1 and 12.\n" HAGGANGDITO);
         }
     } while (s.grade < 1 || s.grade > 12);
 
     while (1) {
-        printf(HYEL"Enter Section (one letter only)"HAGGANGDITO": ");
+        printf(HYEL"Enter Section (one letter only)" HAGGANGDITO": ");
         if (!fgets(s.section, sizeof(s.section), stdin)) {
             return;
         }
         s.section[strcspn(s.section, "\n")] = 0;
         if (s.section[0] == '\0') {
-            printf(RED"Section cannot be empty.\n"HAGGANGDITO);
+            printf(RED"Section cannot be empty.\n" HAGGANGDITO);
             continue;
         }
         if (s.section[1] != '\0' || !isalpha((unsigned char)s.section[0])) {
-            printf(RED"Section must be a single letter (A-Z).\n"HAGGANGDITO);
+            printf(RED"Section must be a single letter (A-Z).\n" HAGGANGDITO);
             continue;
         }
         s.section[0] = (char)toupper((unsigned char)s.section[0]);
@@ -295,26 +295,26 @@ void addStudent() {
         calculateAverage(&s);
         float currentAvg = s.average;
 
-        printf(UGRN"\nSTUDENT:"HAGGANGDITO HWHT" %s "HAGGANGDITO RED"| "HAGGANGDITO UGRN"Grade:"HAGGANGDITO HWHT" %d "HAGGANGDITO RED"| "HAGGANGDITO UGRN"Section:"HAGGANGDITO HWHT" %s\n\n"HAGGANGDITO, s.name, s.grade, s.section);
+        printf(UGRN"\nSTUDENT:" HAGGANGDITO HWHT" %s " HAGGANGDITO RED"| " HAGGANGDITO UGRN" Grade:" HAGGANGDITO HWHT" %d " HAGGANGDITO RED"| " HAGGANGDITO UGRN" Section:" HAGGANGDITO HWHT" %s\n\n" HAGGANGDITO, s.name, s.grade, s.section);
 
         // Print table header
-        printf(RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-7s\n"HAGGANGDITO, 
+        printf(RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-7s\n" HAGGANGDITO, 
                "Quiz1", "Quiz2", "Quiz3", "Act1", "Act2", "Act3", "Exam", "Proj", "Average");
-        printf(RED"+--------+--------+--------+--------+--------+--------+--------+--------+---------\n"HAGGANGDITO);
+        printf(RED"+--------+--------+--------+--------+--------+--------+--------+--------+---------\n" HAGGANGDITO);
         
         // Print scores
-        printf(RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f\n",
+        printf(RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %7.2f\n",
                s.quiz1, s.quiz2, s.quiz3, s.activity1, s.activity2, s.activity3, s.examination, s.project, currentAvg);
         
-        printf(BCYN"\nWhat do you "HAGGANGDITO UCYN BCYN"WANT"HAGGANGDITO BCYN" to record?\n\n"HAGGANGDITO);
+        printf(BCYN"\nWhat do you " HAGGANGDITO UCYN BCYN" WANT" HAGGANGDITO BCYN" to record?\n\n" HAGGANGDITO);
 
-        printf(YEL"[1]"HAGGANGDITO" Quiz 1  "YEL"[4]"HAGGANGDITO" Activity 1  "YEL"[7]"HAGGANGDITO" Examination\n");
-        printf(YEL"[2]"HAGGANGDITO" Quiz 2  "YEL"[5]"HAGGANGDITO" Activity 2  "YEL"[8]"HAGGANGDITO" Project\n");
-    printf(YEL"[3]"HAGGANGDITO" Quiz 3  "YEL"[6]"HAGGANGDITO" Activity 3  "YEL"[9]"HAGGANGDITO" "UWHT BHWHT"Information\n\n"HAGGANGDITO);
+        printf(YEL"[1]" HAGGANGDITO" Quiz 1  " YEL"[4]" HAGGANGDITO" Activity 1  " YEL"[7]" HAGGANGDITO" Examination\n");
+        printf(YEL"[2]" HAGGANGDITO" Quiz 2  " YEL"[5]" HAGGANGDITO" Activity 2  " YEL"[8]" HAGGANGDITO" Project\n");
+    printf(YEL"[3]" HAGGANGDITO" Quiz 3  " YEL"[6]" HAGGANGDITO" Activity 3  " YEL"[9]" HAGGANGDITO" " UWHT BHWHT"Information\n\n" HAGGANGDITO);
 
-        printf(YEL"[Y]"HAGGANGDITO GRN" Finish and Save\n"HAGGANGDITO);
-        printf(YEL"[N]"HAGGANGDITO HRED" Cancel\n\n"HAGGANGDITO);
-        printf(HYEL"Choose: "HAGGANGDITO);
+        printf(YEL"[Y]" HAGGANGDITO GRN" Finish and Save\n" HAGGANGDITO);
+        printf(YEL"[N]" HAGGANGDITO HRED" Cancel\n\n" HAGGANGDITO);
+        printf(HYEL"Choose: " HAGGANGDITO);
         scanf(" %c", &recordChoice);
         getchar();
         system("cls");
@@ -322,17 +322,17 @@ void addStudent() {
         switch (recordChoice) {
             case '1':
             case 1:
-                printf(BCYN"=== ENTERING QUIZ 1 ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Quiz 1 score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING QUIZ 1 ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Quiz 1 score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.quiz1);
                 while (s.quiz1 < 0 || s.quiz1 > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Quiz 1 score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Quiz 1 score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.quiz1);
                 }
                 printf(GRN "Quiz 1 saved: %.2f\n" HAGGANGDITO, s.quiz1);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -340,17 +340,17 @@ void addStudent() {
                 
             case '2':
             case 2:
-                printf(BCYN"=== ENTERING QUIZ 2 ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Quiz 2 score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING QUIZ 2 ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Quiz 2 score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.quiz2);
                 while (s.quiz2 < 0 || s.quiz2 > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Quiz 2 score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Quiz 2 score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.quiz2);
                 }
                 printf(GRN "Quiz 2 saved: %.2f\n" HAGGANGDITO, s.quiz2);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -358,17 +358,17 @@ void addStudent() {
                 
             case '3':
             case 3:
-                printf(BCYN"=== ENTERING QUIZ 3 ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Quiz 3 score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING QUIZ 3 ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Quiz 3 score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.quiz3);
                 while (s.quiz3 < 0 || s.quiz3 > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Quiz 3 score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Quiz 3 score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.quiz3);
                 }
                 printf(GRN "Quiz 3 saved: %.2f\n" HAGGANGDITO, s.quiz3);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -376,17 +376,17 @@ void addStudent() {
                 
             case '4':
             case 4:
-                printf(BCYN"=== ENTERING ACTIVITY 1 ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Activity 1 score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING ACTIVITY 1 ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Activity 1 score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.activity1);
                 while (s.activity1 < 0 || s.activity1 > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Activity 1 score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Activity 1 score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.activity1);
                 }
                 printf(GRN "Activity 1 saved: %.2f\n" HAGGANGDITO, s.activity1);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -394,17 +394,17 @@ void addStudent() {
                 
             case '5':
             case 5:
-                printf(BCYN"=== ENTERING ACTIVITY 2 ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Activity 2 score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING ACTIVITY 2 ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Activity 2 score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.activity2);
                 while (s.activity2 < 0 || s.activity2 > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Activity 2 score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Activity 2 score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.activity2);
                 }
                 printf(GRN "Activity 2 saved: %.2f\n" HAGGANGDITO, s.activity2);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -412,17 +412,17 @@ void addStudent() {
                 
             case '6':
             case 6:
-                printf(BCYN"=== ENTERING ACTIVITY 3 ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Activity 3 score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING ACTIVITY 3 ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Activity 3 score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.activity3);
                 while (s.activity3 < 0 || s.activity3 > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Activity 3 score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Activity 3 score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.activity3);
                 }
                 printf(GRN "Activity 3 saved: %.2f\n" HAGGANGDITO, s.activity3);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -430,17 +430,17 @@ void addStudent() {
                 
             case '7':
             case 7:
-                printf(BCYN"=== ENTERING EXAMINATION ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Examination score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING EXAMINATION ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Examination score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.examination);
                 while (s.examination < 0 || s.examination > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Examination score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Examination score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.examination);
                 }
                 printf(GRN "Examination saved: %.2f\n" HAGGANGDITO, s.examination);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -448,17 +448,17 @@ void addStudent() {
                 
             case '8':
             case 8:
-                printf(BCYN"=== ENTERING PROJECT ===\n\n"HAGGANGDITO);
-                printf(HYEL"Name: "HAGGANGDITO"%s\n", s.name);
-                printf(HYEL"Enter Project score (0-100): "HAGGANGDITO);
+                printf(BCYN"=== ENTERING PROJECT ===\n\n" HAGGANGDITO);
+                printf(HYEL"Name: " HAGGANGDITO"%s\n", s.name);
+                printf(HYEL"Enter Project score (0-100): " HAGGANGDITO);
                 scanf("%f", &s.project);
                 while (s.project < 0 || s.project > 100) {
-                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                    printf(HYEL"Enter Project score (0-100): "HAGGANGDITO);
+                    printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                    printf(HYEL"Enter Project score (0-100): " HAGGANGDITO);
                     scanf("%f", &s.project);
                 }
                 printf(GRN "Project saved: %.2f\n" HAGGANGDITO, s.project);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 getchar();
                 system("cls");
@@ -475,10 +475,10 @@ void addStudent() {
                 char sectionBuf[sizeof(s.section)];
                 int newGrade;
 
-                printf(BCYN"=== EDIT STUDENT INFORMATION ===\n\n"HAGGANGDITO);
+                printf(BCYN"=== EDIT STUDENT INFORMATION ===\n\n" HAGGANGDITO);
 
                 while (1) {
-                    printf(HYEL"Name ("HAGGANGDITO HWHT"%s"HAGGANGDITO HYEL"):"HAGGANGDITO" ", s.name);
+                    printf(HYEL"Name (" HAGGANGDITO HWHT"%s" HAGGANGDITO HYEL"):" HAGGANGDITO" ", s.name);
                     if (!fgets(buffer, sizeof(buffer), stdin)) {
                         continue;
                     }
@@ -487,7 +487,7 @@ void addStudent() {
                         break;
                     }
                     if (!isAlphaSpace(buffer)) {
-                        printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
+                        printf(RED"Name must contain letters and spaces only.\n" HAGGANGDITO);
                         continue;
                     }
                     strncpy(s.name, buffer, MAX_NAME);
@@ -496,19 +496,19 @@ void addStudent() {
                 }
 
                 while (1) {
-                    printf(HYEL"Grade ("HAGGANGDITO HWHT"%d"HAGGANGDITO HYEL"): "HAGGANGDITO, s.grade);
+                    printf(HYEL"Grade (" HAGGANGDITO HWHT"%d" HAGGANGDITO HYEL"): " HAGGANGDITO, s.grade);
                     if (scanf("%d", &newGrade) == 1 && newGrade >= 1 && newGrade <= 12) {
                         s.grade = newGrade;
                         break;
                     }
-                    printf(RED"Please enter a grade between 1 and 12.\n"HAGGANGDITO);
+                    printf(RED"Please enter a grade between 1 and 12.\n" HAGGANGDITO);
                     int ch;
                     while ((ch = getchar()) != '\n' && ch != EOF) {}
                 }
                 getchar();
 
                 while (1) {
-                    printf(HYEL"Section ("HAGGANGDITO HWHT"%s"HAGGANGDITO HYEL"): "HAGGANGDITO, s.section);
+                    printf(HYEL"Section (" HAGGANGDITO HWHT"%s" HAGGANGDITO HYEL"): " HAGGANGDITO, s.section);
                     if (!fgets(sectionBuf, sizeof(sectionBuf), stdin)) {
                         continue;
                     }
@@ -517,7 +517,7 @@ void addStudent() {
                         break;
                     }
                     if (sectionBuf[1] != '\0' || !isalpha((unsigned char)sectionBuf[0])) {
-                        printf(RED"Section must be a single letter (A-Z).\n"HAGGANGDITO);
+                        printf(RED"Section must be a single letter (A-Z).\n" HAGGANGDITO);
                         continue;
                     }
                     strncpy(s.section, sectionBuf, sizeof(s.section));
@@ -527,8 +527,8 @@ void addStudent() {
                     break;
                 }
 
-                printf(GRN"\nInformation updated.\n"HAGGANGDITO);
-                printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(GRN"\nInformation updated.\n" HAGGANGDITO);
+                printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
                 getchar();
                 system("cls");
                 break;
@@ -537,7 +537,7 @@ void addStudent() {
             case 'N':
             case 'n':
                 printf(YEL "Cancelled. Student not added.\n" HAGGANGDITO);
-                printf(UWHT"Press Enter to continue..."HAGGANGDITO);
+                printf(UWHT"Press Enter to continue..." HAGGANGDITO);
                 getchar();
                 system("cls");
                 return;
@@ -565,19 +565,19 @@ void addStudent() {
     printf(GRN"Student added successfully! ID: %d\n" HAGGANGDITO, s.id);
     saveToFile();
     
-    printf(UGRN"\nSTUDENT:"HAGGANGDITO HWHT" %s "HAGGANGDITO RED"| "HAGGANGDITO UGRN"Grade:"HAGGANGDITO HWHT" %d "HAGGANGDITO RED"| "HAGGANGDITO UGRN"Section:"HAGGANGDITO HWHT" %s\n\n"HAGGANGDITO, s.name, s.grade, s.section);
+    printf(UGRN"\nSTUDENT:" HAGGANGDITO HWHT" %s " HAGGANGDITO RED"| " HAGGANGDITO UGRN" Grade:" HAGGANGDITO HWHT" %d " HAGGANGDITO RED"| " HAGGANGDITO UGRN" Section:" HAGGANGDITO HWHT" %s\n\n" HAGGANGDITO, s.name, s.grade, s.section);
     
     // Print table header
-        printf(RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-7s\n"HAGGANGDITO, 
+        printf(RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-7s\n" HAGGANGDITO, 
            "Quiz1", "Quiz2", "Quiz3", "Act1", "Act2", "Act3", "Exam", "Proj", "Average");
-    printf(RED"+--------+--------+--------+--------+--------+--------+--------+--------+---------\n"HAGGANGDITO);
+    printf(RED"+--------+--------+--------+--------+--------+--------+--------+--------+---------\n" HAGGANGDITO);
     
     // Print scores
-        printf(RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f\n",
+        printf(RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %7.2f\n",
            s.quiz1, s.quiz2, s.quiz3, s.activity1, s.activity2, s.activity3, s.examination, s.project, s.average);
     
-    printf(BCYN"\nYou can "HAGGANGDITO BCYN UCYN"EDIT"HAGGANGDITO BCYN" this again\n"HAGGANGDITO);
-    printf(UWHT"\nPress Enter to continue: "HAGGANGDITO);
+    printf(BCYN"\nYou can " HAGGANGDITO BCYN UCYN" EDIT" HAGGANGDITO BCYN" this again\n" HAGGANGDITO);
+    printf(UWHT"\nPress Enter to continue: " HAGGANGDITO);
     getchar();
     system("cls");
 }
@@ -586,19 +586,19 @@ void addStudent() {
 
 void showAllStudents() {
     if (studentCount == 0) {
-        printf(RED"No students found.\n"HAGGANGDITO);
+        printf(RED"No students found.\n" HAGGANGDITO);
         return;
     }
     
     while (1) {
-        printf(BHCYN"=== ALL STUDENTS RECORDS ===\n\n"HAGGANGDITO);
+        printf(BHCYN"=== ALL STUDENTS RECORDS ===\n\n" HAGGANGDITO);
         printStudentTable();
 
-        printf(HGRN "\n\n NOTE: " HBLK  "All student records that you added are here, and you can search them using their ID.\n\n"HAGGANGDITO);
+        printf(HGRN "\n\n NOTE: " HBLK  " All student records that you added are here, and you can search them using their ID.\n\n" HAGGANGDITO);
         
-        printf(YEL"\n[1]"HAGGANGDITO GRN" Search Student by ID\n"HAGGANGDITO);
-        printf(YEL"[0]"HAGGANGDITO HRED" Back to Main Menu\n\n"HAGGANGDITO);
-        printf(HYEL"Choose: "HAGGANGDITO);
+        printf(YEL"\n[1]" HAGGANGDITO GRN" Search Student by ID\n" HAGGANGDITO);
+        printf(YEL"[0]" HAGGANGDITO HRED" Back to Main Menu\n\n" HAGGANGDITO);
+        printf(HYEL"Choose: " HAGGANGDITO);
         
         int choice;
         scanf("%d", &choice);
@@ -608,7 +608,7 @@ void showAllStudents() {
             int searchAgain = 1;
             while (searchAgain) {
                 int id;
-                printf(HYEL"\nEnter student ID (0 to exit) : "HAGGANGDITO);
+                printf(HYEL"\nEnter student ID (0 to exit) : " HAGGANGDITO);
                 scanf("%d", &id);
                 getchar();
                 if (id == 0) {
@@ -619,21 +619,21 @@ void showAllStudents() {
                 for (int i = 0; i < studentCount; i++) {
                     if (students[i].id == id) {
                         system("cls");
-                        printf(BCYN"\n=== STUDENT DETAILS ===\n\n"HAGGANGDITO);
-                        printf(CYN"ID: "HAGGANGDITO"%d\n", students[i].id);
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        if (students[i].grade > 0) printf(CYN"Grade: "HAGGANGDITO"%d\n", students[i].grade);
-                        if (students[i].section[0] != '\0') printf(CYN"Section: "HAGGANGDITO"%s\n", students[i].section);
-                        printf(CYN"Quiz 1: "HAGGANGDITO"%.2f\n", students[i].quiz1);
-                        printf(CYN"Quiz 2: "HAGGANGDITO"%.2f\n", students[i].quiz2);
-                        printf(CYN"Quiz 3: "HAGGANGDITO"%.2f\n", students[i].quiz3);
-                        printf(CYN"Activity 1: "HAGGANGDITO"%.2f\n", students[i].activity1);
-                        printf(CYN"Activity 2: "HAGGANGDITO"%.2f\n", students[i].activity2);
-                        printf(CYN"Activity 3: "HAGGANGDITO"%.2f\n", students[i].activity3);
-                        printf(CYN"Examination: "HAGGANGDITO"%.2f\n", students[i].examination);
-                        printf(CYN"Project: "HAGGANGDITO"%.2f\n", students[i].project);
-                        printf(CYN"Average: "HAGGANGDITO"%.2f\n", students[i].average);
-                        printf(UWHT"\nPress Enter to continue...\n"HAGGANGDITO);
+                        printf(BCYN"\n=== STUDENT DETAILS ===\n\n" HAGGANGDITO);
+                        printf(CYN"ID: " HAGGANGDITO"%d\n", students[i].id);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        if (students[i].grade > 0) printf(CYN"Grade: " HAGGANGDITO"%d\n", students[i].grade);
+                        if (students[i].section[0] != '\0') printf(CYN"Section: " HAGGANGDITO"%s\n", students[i].section);
+                        printf(CYN"Quiz 1: " HAGGANGDITO"%.2f\n", students[i].quiz1);
+                        printf(CYN"Quiz 2: " HAGGANGDITO"%.2f\n", students[i].quiz2);
+                        printf(CYN"Quiz 3: " HAGGANGDITO"%.2f\n", students[i].quiz3);
+                        printf(CYN"Activity 1: " HAGGANGDITO"%.2f\n", students[i].activity1);
+                        printf(CYN"Activity 2: " HAGGANGDITO"%.2f\n", students[i].activity2);
+                        printf(CYN"Activity 3: " HAGGANGDITO"%.2f\n", students[i].activity3);
+                        printf(CYN"Examination: " HAGGANGDITO"%.2f\n", students[i].examination);
+                        printf(CYN"Project: " HAGGANGDITO"%.2f\n", students[i].project);
+                        printf(CYN"Average: " HAGGANGDITO"%.2f\n", students[i].average);
+                        printf(UWHT"\nPress Enter to continue...\n" HAGGANGDITO);
                         getchar();
                         found = 1;
                         searchAgain = 0;
@@ -650,7 +650,7 @@ void showAllStudents() {
             break;
         } else {
             printf(RED "Invalid choice!\n" HAGGANGDITO);
-            printf(UWHT"Press Enter to continue..."HAGGANGDITO);
+            printf(UWHT"Press Enter to continue..." HAGGANGDITO);
             getchar();
         }
     }
@@ -660,15 +660,15 @@ void showAllStudents() {
 
 void editStudent() {
     if (studentCount == 0) {
-        printf(RED"No students to edit.\n"HAGGANGDITO);
+        printf(RED"No students to edit.\n" HAGGANGDITO);
         return;
     }
-    printf(BCYN"=== RE-EDIT A STUDENT ===\n\n"HAGGANGDITO);
+    printf(BCYN"=== RE-EDIT A STUDENT ===\n\n" HAGGANGDITO);
     printStudentTable();
     printf("\n");
 
     int id;
-    printf(HYEL"Enter student ID to edit (0 to exit): "HAGGANGDITO);
+    printf(HYEL"Enter student ID to edit (0 to exit): " HAGGANGDITO);
     scanf("%d", &id);
     getchar();
     system("cls");
@@ -685,135 +685,135 @@ void editStudent() {
           calculateAverage(&students[i]);
           float currentAvg = students[i].average;
 
-          printf(UGRN"\nSTUDENT:"HAGGANGDITO HWHT" %s "HAGGANGDITO RED"| "HAGGANGDITO UGRN"Grade:"HAGGANGDITO HWHT" %d "HAGGANGDITO RED"| "HAGGANGDITO UGRN"Section:"HAGGANGDITO HWHT" %s\n\n"HAGGANGDITO,
+          printf(UGRN"\nSTUDENT:" HAGGANGDITO HWHT" %s " HAGGANGDITO RED"| " HAGGANGDITO UGRN" Grade:" HAGGANGDITO HWHT" %d " HAGGANGDITO RED"| " HAGGANGDITO UGRN" Section:" HAGGANGDITO HWHT" %s\n\n" HAGGANGDITO,
               students[i].name, students[i].grade, students[i].section);
 
-          printf(RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-6s "HAGGANGDITO RED"|"HAGGANGDITO HWHT" %-7s\n"HAGGANGDITO,
+          printf(RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-6s " HAGGANGDITO RED"|" HAGGANGDITO HWHT" %-7s\n" HAGGANGDITO,
               "Quiz1", "Quiz2", "Quiz3", "Act1", "Act2", "Act3", "Exam", "Proj", "Average");
-          printf(RED"+--------+--------+--------+--------+--------+--------+--------+--------+---------\n"HAGGANGDITO);
-          printf(RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %6.2f "RED"|"HAGGANGDITO" %7.2f\n",
+          printf(RED"+--------+--------+--------+--------+--------+--------+--------+--------+---------\n" HAGGANGDITO);
+          printf(RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %6.2f " RED"|" HAGGANGDITO" %7.2f\n",
               students[i].quiz1, students[i].quiz2, students[i].quiz3,
               students[i].activity1, students[i].activity2, students[i].activity3,
               students[i].examination, students[i].project, currentAvg);
 
-          printf(BCYN"\nWhat do you "HAGGANGDITO BCYN UCYN"WANT"HAGGANGDITO BCYN" to edit?\n\n"HAGGANGDITO);
-          printf(YEL"[1]"HAGGANGDITO" Quiz 1  "YEL"[4]"HAGGANGDITO" Activity 1  "YEL"[7]"HAGGANGDITO" Examination  "RED"|"HAGGANGDITO"   "YEL"[9]"HAGGANGDITO" Name\n");
-          printf(YEL"[2]"HAGGANGDITO" Quiz 2  "YEL"[5]"HAGGANGDITO" Activity 2  "YEL"[8]"HAGGANGDITO" Project      "RED"|"HAGGANGDITO"   "YEL"[10]"HAGGANGDITO" Grade\n");
-          printf(YEL"[3]"HAGGANGDITO" Quiz 3  "YEL"[6]"HAGGANGDITO" Activity 3                   "RED"|"HAGGANGDITO"   "YEL"[11]"HAGGANGDITO" Section\n\n");
+          printf(BCYN"\nWhat do you " HAGGANGDITO BCYN UCYN" WANT" HAGGANGDITO BCYN" to edit?\n\n" HAGGANGDITO);
+          printf(YEL"[1]" HAGGANGDITO" Quiz 1  " YEL"[4]" HAGGANGDITO" Activity 1  " YEL"[7]" HAGGANGDITO" Examination  " RED"|" HAGGANGDITO"   " YEL"[9]" HAGGANGDITO" Name\n");
+          printf(YEL"[2]" HAGGANGDITO" Quiz 2  " YEL"[5]" HAGGANGDITO" Activity 2  " YEL"[8]" HAGGANGDITO" Project      " RED"|" HAGGANGDITO"   " YEL"[10]" HAGGANGDITO" Grade\n");
+          printf(YEL"[3]" HAGGANGDITO" Quiz 3  " YEL"[6]" HAGGANGDITO" Activity 3                   " RED"|" HAGGANGDITO"   " YEL"[11]" HAGGANGDITO" Section\n\n");
         
-          printf(YEL"[0]"HAGGANGDITO GRN" Finish and Save\n\n"HAGGANGDITO);
-          printf(HYEL"Choose: "HAGGANGDITO);
+          printf(YEL"[0]" HAGGANGDITO GRN" Finish and Save\n\n" HAGGANGDITO);
+          printf(HYEL"Choose: " HAGGANGDITO);
                 scanf("%d", &editChoice);
                 system("cls");
                 
                 switch (editChoice) {
                     case 1:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Quiz 1: "HAGGANGDITO"%.2f\n\n", students[i].quiz1);
-                        printf(HYEL"Enter new Quiz 1 score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Quiz 1: " HAGGANGDITO"%.2f\n\n", students[i].quiz1);
+                        printf(HYEL"Enter new Quiz 1 score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].quiz1);
                         while (students[i].quiz1 < 0 || students[i].quiz1 > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Quiz 1 score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Quiz 1 score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].quiz1);
                         }
-                        printf(GRN"Quiz 1 updated: %.2f\n"HAGGANGDITO, students[i].quiz1);
+                        printf(GRN"Quiz 1 updated: %.2f\n" HAGGANGDITO, students[i].quiz1);
                         break;
                         
                     case 2:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Quiz 2: "HAGGANGDITO"%.2f\n\n", students[i].quiz2);
-                        printf(HYEL"Enter new Quiz 2 score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Quiz 2: " HAGGANGDITO"%.2f\n\n", students[i].quiz2);
+                        printf(HYEL"Enter new Quiz 2 score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].quiz2);
                         while (students[i].quiz2 < 0 || students[i].quiz2 > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Quiz 2 score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Quiz 2 score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].quiz2);
                         }
                         printf(GRN "Quiz 2 updated: %.2f\n" HAGGANGDITO, students[i].quiz2);
                         break;
                         
                     case 3:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Quiz 3: "HAGGANGDITO"%.2f\n\n", students[i].quiz3);
-                        printf(HYEL"Enter new Quiz 3 score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Quiz 3: " HAGGANGDITO"%.2f\n\n", students[i].quiz3);
+                        printf(HYEL"Enter new Quiz 3 score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].quiz3);
                         while (students[i].quiz3 < 0 || students[i].quiz3 > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Quiz 3 score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Quiz 3 score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].quiz3);
                         }
                         printf(GRN "Quiz 3 updated: %.2f\n" HAGGANGDITO, students[i].quiz3);
                         break;
                         
                     case 4:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Activity 1: "HAGGANGDITO"%.2f\n\n", students[i].activity1);
-                        printf(HYEL"Enter new Activity 1 score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Activity 1: " HAGGANGDITO"%.2f\n\n", students[i].activity1);
+                        printf(HYEL"Enter new Activity 1 score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].activity1);
                         while (students[i].activity1 < 0 || students[i].activity1 > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Activity 1 score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Activity 1 score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].activity1);
                         }
                         printf(GRN "Activity 1 updated: %.2f\n" HAGGANGDITO, students[i].activity1);
                         break;
                         
                     case 5:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Activity 2: "HAGGANGDITO"%.2f\n\n", students[i].activity2);
-                        printf(HYEL"Enter new Activity 2 score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Activity 2: " HAGGANGDITO"%.2f\n\n", students[i].activity2);
+                        printf(HYEL"Enter new Activity 2 score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].activity2);
                         while (students[i].activity2 < 0 || students[i].activity2 > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Activity 2 score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Activity 2 score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].activity2);
                         }
                         printf(GRN "Activity 2 updated: %.2f\n" HAGGANGDITO, students[i].activity2);
                         break;
                         
                     case 6:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Activity 3: "HAGGANGDITO"%.2f\n\n", students[i].activity3);
-                        printf(HYEL"Enter new Activity 3 score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Activity 3: " HAGGANGDITO"%.2f\n\n", students[i].activity3);
+                        printf(HYEL"Enter new Activity 3 score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].activity3);
                         while (students[i].activity3 < 0 || students[i].activity3 > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Activity 3 score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Activity 3 score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].activity3);
                         }
                         printf(GRN "Activity 3 updated: %.2f\n" HAGGANGDITO, students[i].activity3);
                         break;
                         
                     case 7:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Examination: "HAGGANGDITO"%.2f\n\n", students[i].examination);
-                        printf(HYEL"Enter new Examination score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Examination: " HAGGANGDITO"%.2f\n\n", students[i].examination);
+                        printf(HYEL"Enter new Examination score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].examination);
                         while (students[i].examination < 0 || students[i].examination > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Examination score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Examination score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].examination);
                         }
                         printf(GRN "Examination updated: %.2f\n" HAGGANGDITO, students[i].examination);
                         break;
                         
                     case 8:
-                        printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                        printf(CYN"Current Project: "HAGGANGDITO"%.2f\n\n", students[i].project);
-                        printf(HYEL"Enter new Project score (0-100): "HAGGANGDITO);
+                        printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                        printf(CYN"Current Project: " HAGGANGDITO"%.2f\n\n", students[i].project);
+                        printf(HYEL"Enter new Project score (0-100): " HAGGANGDITO);
                         scanf("%f", &students[i].project);
                         while (students[i].project < 0 || students[i].project > 100) {
-                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n"HAGGANGDITO);
-                            printf(HYEL"Enter new Project score (0-100): "HAGGANGDITO);
+                            printf(RED"Invalid score! Please enter a score between 0 and 100.\n" HAGGANGDITO);
+                            printf(HYEL"Enter new Project score (0-100): " HAGGANGDITO);
                             scanf("%f", &students[i].project);
                         }
                         printf(GRN "Project updated: %.2f\n" HAGGANGDITO, students[i].project);
                         break;
                     case 9: {
                         char buffer[MAX_NAME];
-                        printf(CYN"Current Name: "HAGGANGDITO"%s\n\n", students[i].name);
-                        printf(HYEL"Enter new name: "HAGGANGDITO);
+                        printf(CYN"Current Name: " HAGGANGDITO"%s\n\n", students[i].name);
+                        printf(HYEL"Enter new name: " HAGGANGDITO);
                         getchar();
                         while (1) {
                             if (!fgets(buffer, sizeof(buffer), stdin)) {
@@ -821,39 +821,39 @@ void editStudent() {
                             }
                             buffer[strcspn(buffer, "\n")] = 0;
                             if (buffer[0] == '\0') {
-                                printf(YEL"Name unchanged.\n"HAGGANGDITO);
+                                printf(YEL"Name unchanged.\n" HAGGANGDITO);
                                 break;
                             }
                             if (!isAlphaSpace(buffer)) {
-                                printf(RED"Name must contain letters and spaces only.\n"HAGGANGDITO);
-                                printf(HYEL"Enter new name: "HAGGANGDITO);
+                                printf(RED"Name must contain letters and spaces only.\n" HAGGANGDITO);
+                                printf(HYEL"Enter new name: " HAGGANGDITO);
                                 continue;
                             }
                             strncpy(students[i].name, buffer, MAX_NAME);
                             students[i].name[MAX_NAME - 1] = '\0';
-                            printf(GRN"Name updated to: %s\n"HAGGANGDITO, students[i].name);
+                            printf(GRN"Name updated to: %s\n" HAGGANGDITO, students[i].name);
                             break;
                         }
                         break;
                     }
                     case 10:
                         do {
-                            printf(CYN"Current Grade: "HAGGANGDITO"%d\n\n", students[i].grade);
-                            printf(HYEL"Enter new grade level (1-12): "HAGGANGDITO);
+                            printf(CYN"Current Grade: " HAGGANGDITO"%d\n\n", students[i].grade);
+                            printf(HYEL"Enter new grade level (1-12): " HAGGANGDITO);
                             if (scanf("%d", &students[i].grade) != 1) {
                                 int c; while ((c = getchar()) != '\n' && c != EOF) {}
                                 students[i].grade = 0;
                             }
                             if (students[i].grade < 1 || students[i].grade > 12) {
-                                printf(RED"Please enter a valid grade between 1 and 12.\n"HAGGANGDITO);
+                                printf(RED"Please enter a valid grade between 1 and 12.\n" HAGGANGDITO);
                             }
                         } while (students[i].grade < 1 || students[i].grade > 12);
                         printf(GRN "Grade updated to: %d\n" HAGGANGDITO, students[i].grade);
                         break;
                     case 11: {
                         char buffer[sizeof(students[i].section)];
-                        printf(CYN"Current Section: "HAGGANGDITO"%s\n\n", students[i].section);
-                        printf(HYEL"Enter new section: "HAGGANGDITO);
+                        printf(CYN"Current Section: " HAGGANGDITO"%s\n\n", students[i].section);
+                        printf(HYEL"Enter new section: " HAGGANGDITO);
                         getchar();
                         while (1) {
                             if (!fgets(buffer, sizeof(buffer), stdin)) {
@@ -861,19 +861,19 @@ void editStudent() {
                             }
                             buffer[strcspn(buffer, "\n")] = 0;
                             if (buffer[0] == '\0') {
-                                printf(YEL"Section unchanged.\n"HAGGANGDITO);
+                                printf(YEL"Section unchanged.\n" HAGGANGDITO);
                                 break;
                             }
                             if (buffer[1] != '\0' || !isalpha((unsigned char)buffer[0])) {
-                                printf(RED"Section must be a single letter (A-Z).\n"HAGGANGDITO);
-                                printf(HYEL"Enter new section: "HAGGANGDITO);
+                                printf(RED"Section must be a single letter (A-Z).\n" HAGGANGDITO);
+                                printf(HYEL"Enter new section: " HAGGANGDITO);
                                 continue;
                             }
                             strncpy(students[i].section, buffer, sizeof(students[i].section));
                             students[i].section[sizeof(students[i].section) - 1] = '\0';
                             students[i].section[0] = (char)toupper((unsigned char)students[i].section[0]);
                             students[i].section[1] = '\0';
-                            printf(GRN"Section updated to: %s\n"HAGGANGDITO, students[i].section);
+                            printf(GRN"Section updated to: %s\n" HAGGANGDITO, students[i].section);
                             break;
                         }
                         break;
@@ -893,45 +893,45 @@ void editStudent() {
             calculateAverage(&students[i]);
             saveToFile();
             printf(GRN "Student updated successfully!\n\n" HAGGANGDITO);
-                printf(CYN"Name: "HAGGANGDITO"%s\n", students[i].name);
-                printf(CYN"Quiz 1: "HAGGANGDITO"%.2f\n", students[i].quiz1);
-                printf(CYN"Quiz 2: "HAGGANGDITO"%.2f\n", students[i].quiz2);
-                printf(CYN"Quiz 3: "HAGGANGDITO"%.2f\n", students[i].quiz3);
-                printf(CYN"Activity 1: "HAGGANGDITO"%.2f\n", students[i].activity1);
-                printf(CYN"Activity 2: "HAGGANGDITO"%.2f\n", students[i].activity2);
-                printf(CYN"Activity 3: "HAGGANGDITO"%.2f\n", students[i].activity3);
-                printf(CYN"Examination: "HAGGANGDITO"%.2f\n", students[i].examination);
-                printf(CYN"Project: "HAGGANGDITO"%.2f\n", students[i].project);
-                printf(CYN"Average: "HAGGANGDITO"%.2f\n", students[i].average);
-            printf(UWHT"\nPress Enter to continue..."HAGGANGDITO);
+                printf(CYN"Name: " HAGGANGDITO"%s\n", students[i].name);
+                printf(CYN"Quiz 1: " HAGGANGDITO"%.2f\n", students[i].quiz1);
+                printf(CYN"Quiz 2: " HAGGANGDITO"%.2f\n", students[i].quiz2);
+                printf(CYN"Quiz 3: " HAGGANGDITO"%.2f\n", students[i].quiz3);
+                printf(CYN"Activity 1: " HAGGANGDITO"%.2f\n", students[i].activity1);
+                printf(CYN"Activity 2: " HAGGANGDITO"%.2f\n", students[i].activity2);
+                printf(CYN"Activity 3: " HAGGANGDITO"%.2f\n", students[i].activity3);
+                printf(CYN"Examination: " HAGGANGDITO"%.2f\n", students[i].examination);
+                printf(CYN"Project: " HAGGANGDITO"%.2f\n", students[i].project);
+                printf(CYN"Average: " HAGGANGDITO"%.2f\n", students[i].average);
+            printf(UWHT"\nPress Enter to continue..." HAGGANGDITO);
             getchar();
             system("cls");
             return;
         }
     }
-    printf(RED"Student not found.\n"HAGGANGDITO);
+    printf(RED"Student not found.\n" HAGGANGDITO);
 }
 
 //===========================================================================================================================
 
 void deleteStudent() {
     if (studentCount == 0) {
-        printf(RED"No students to delete.\n"HAGGANGDITO);
+        printf(RED"No students to delete.\n" HAGGANGDITO);
         return;
     }
-    printf(BCYN"=== DELETE STUDENT ===\n\n"HAGGANGDITO);
+    printf(BCYN"=== DELETE STUDENT ===\n\n" HAGGANGDITO);
     printStudentTable();
     printf("\n");
     
     int id;
-    printf(HYEL"Enter student ID to delete: "HAGGANGDITO);
+    printf(HYEL"Enter student ID to delete: " HAGGANGDITO);
     scanf("%d", &id);
     getchar();
     system("cls");
     
     for (int i = 0; i < studentCount; i++) {
         if (students[i].id == id) {
-            printf(GRN"\nStudent deleted successfully: "HAGGANGDITO GRN"ID:"HAGGANGDITO HWHT" %d "HAGGANGDITO RED"| "HAGGANGDITO GRN"Name:"HAGGANGDITO HWHT" %s\n\n"HAGGANGDITO, students[i].id, students[i].name);
+            printf(GRN"\nStudent deleted successfully: " HAGGANGDITO GRN" ID:" HAGGANGDITO HWHT" %d " HAGGANGDITO RED"| " HAGGANGDITO GRN" Name:" HAGGANGDITO HWHT" %s\n\n" HAGGANGDITO, students[i].id, students[i].name);
             for (int j = i; j < studentCount - 1; j++) {
                 students[j] = students[j + 1];
             }
@@ -941,7 +941,7 @@ void deleteStudent() {
         }
     }
     system("cls");
-    printf(RED"Student not found.\n\a"HAGGANGDITO);
+    printf(RED"Student not found.\n\a" HAGGANGDITO);
     
 }
 
@@ -957,30 +957,30 @@ int main() {
     while (1) {
         const char *banner =
         "\n"
-BHRED"       .::    "HAGGANGDITO BHYEL"  .::::  "HAGGANGDITO BHGRN" .:::::::    "HAGGANGDITO BHCYN"       .:       "HAGGANGDITO BHBLU" .:::::    "HAGGANGDITO BHMAG" .::::::::"HAGGANGDITO BHWHT"   .:: ::  \n"HAGGANGDITO
-BHRED"    .::   .:: "HAGGANGDITO BHYEL".:    .::"HAGGANGDITO BHGRN" .::    .::  "HAGGANGDITO BHCYN"      .: ::     "HAGGANGDITO BHBLU" .::   .:: "HAGGANGDITO BHMAG" .::      "HAGGANGDITO BHWHT" .::    .::\n"HAGGANGDITO
-BHRED"   .::        "HAGGANGDITO BHYEL"::       "HAGGANGDITO BHGRN" .::    .::  "HAGGANGDITO BHCYN"     .:  .::    "HAGGANGDITO BHBLU" .::    .::"HAGGANGDITO BHMAG" .::      "HAGGANGDITO BHWHT"  .::      \n"HAGGANGDITO
-BHRED"   .::        "HAGGANGDITO BHYEL"::       "HAGGANGDITO BHGRN" .: .::      "HAGGANGDITO BHCYN"    .::   .::   "HAGGANGDITO BHBLU" .::    .::"HAGGANGDITO BHMAG" .::::::  "HAGGANGDITO BHWHT"    .::    \n"HAGGANGDITO
-BHRED"   .::        "HAGGANGDITO BHYEL"::   .:::"HAGGANGDITO BHGRN" .::  .::    "HAGGANGDITO BHCYN"   .:::::: .::  "HAGGANGDITO BHBLU" .::    .::"HAGGANGDITO BHMAG" .::      "HAGGANGDITO BHWHT"       .:: \n"HAGGANGDITO
-BHRED"    .::   .:: "HAGGANGDITO BHYEL".::    .:"HAGGANGDITO BHGRN" .::    .::  "HAGGANGDITO BHCYN"  .::       .:: "HAGGANGDITO BHBLU" .::   .:: "HAGGANGDITO BHMAG" .::      "HAGGANGDITO BHWHT" .::    .::\n"HAGGANGDITO
-BHRED"      .::::   "HAGGANGDITO BHYEL" .:::::  "HAGGANGDITO BHGRN" .::      .::"HAGGANGDITO BHCYN" .::         .::"HAGGANGDITO BHBLU" .:::::    "HAGGANGDITO BHMAG" .::::::::"HAGGANGDITO BHWHT"   .:: ::  \n"HAGGANGDITO
+BHRED"       .::    " HAGGANGDITO BHYEL"  .::::  " HAGGANGDITO BHGRN" .:::::::    " HAGGANGDITO BHCYN"       .:       " HAGGANGDITO BHBLU" .:::::    " HAGGANGDITO BHMAG" .::::::::" HAGGANGDITO BHWHT"   .:: ::  \n" HAGGANGDITO
+BHRED"    .::   .:: " HAGGANGDITO BHYEL".:    .::" HAGGANGDITO BHGRN" .::    .::  " HAGGANGDITO BHCYN"      .: ::     " HAGGANGDITO BHBLU" .::   .:: " HAGGANGDITO BHMAG" .::      " HAGGANGDITO BHWHT" .::    .::\n" HAGGANGDITO
+BHRED"   .::        " HAGGANGDITO BHYEL"::       " HAGGANGDITO BHGRN" .::    .::  " HAGGANGDITO BHCYN"     .:  .::    " HAGGANGDITO BHBLU" .::    .::" HAGGANGDITO BHMAG" .::      " HAGGANGDITO BHWHT"  .::      \n" HAGGANGDITO
+BHRED"   .::        " HAGGANGDITO BHYEL"::       " HAGGANGDITO BHGRN" .: .::      " HAGGANGDITO BHCYN"    .::   .::   " HAGGANGDITO BHBLU" .::    .::" HAGGANGDITO BHMAG" .::::::  " HAGGANGDITO BHWHT"    .::    \n" HAGGANGDITO
+BHRED"   .::        " HAGGANGDITO BHYEL"::   .:::" HAGGANGDITO BHGRN" .::  .::    " HAGGANGDITO BHCYN"   .:::::: .::  " HAGGANGDITO BHBLU" .::    .::" HAGGANGDITO BHMAG" .::      " HAGGANGDITO BHWHT"       .:: \n" HAGGANGDITO
+BHRED"    .::   .:: " HAGGANGDITO BHYEL".::    .:" HAGGANGDITO BHGRN" .::    .::  " HAGGANGDITO BHCYN"  .::       .:: " HAGGANGDITO BHBLU" .::   .:: " HAGGANGDITO BHMAG" .::      " HAGGANGDITO BHWHT" .::    .::\n" HAGGANGDITO
+BHRED"      .::::   " HAGGANGDITO BHYEL" .:::::  " HAGGANGDITO BHGRN" .::      .::" HAGGANGDITO BHCYN" .::         .::" HAGGANGDITO BHBLU" .:::::    " HAGGANGDITO BHMAG" .::::::::" HAGGANGDITO BHWHT"   .:: ::  \n" HAGGANGDITO
 "\n"
-BHRED"\t                         |--- BY BSEMC 1-B ---|                           "HAGGANGDITO;
+BHRED"\t                         |--- BY BSEMC 1-B ---|                           " HAGGANGDITO;
                                                           
     puts(banner);
-    printf(BCYN"\n WELCOME TO THE CGRADE SYSTEM BOOK!!\n\n"HAGGANGDITO);
-        printf(YEL"  [1]"HAGGANGDITO" Add Student\n");
-        printf(YEL"  [2]"HAGGANGDITO" Show All Students\n");
-        printf(YEL"  [3]"HAGGANGDITO" Edit Student\n");
-        printf(YEL"  [4]"HAGGANGDITO" Delete Student\n");
-        printf(YEL"  [0]"HAGGANGDITO" Exit\n\n");
+    printf(BCYN"\n WELCOME TO THE CGRADE SYSTEM BOOK!!\n\n" HAGGANGDITO);
+        printf(YEL"  [1]" HAGGANGDITO" Add Student\n");
+        printf(YEL"  [2]" HAGGANGDITO" Show All Students\n");
+        printf(YEL"  [3]" HAGGANGDITO" Edit Student\n");
+        printf(YEL"  [4]" HAGGANGDITO" Delete Student\n");
+        printf(YEL"  [0]" HAGGANGDITO" Exit\n\n");
         
-        printf(HYEL" Enter choice: "HAGGANGDITO);
+        printf(HYEL" Enter choice: " HAGGANGDITO);
         if (scanf("%d", &choice) != 1) {
             int ch;
             while ((ch = getchar()) != '\n' && ch != EOF) {}
-            printf(RED" NOTIFICATION: Please enter numbers only!\a\n"HAGGANGDITO);
-            printf(UWHT"Press Enter to try again..."HAGGANGDITO);
+            printf(RED" NOTIFICATION: Please enter numbers only!\a\n" HAGGANGDITO);
+            printf(UWHT"Press Enter to try again..." HAGGANGDITO);
             getchar();
             system("cls");
             continue;
@@ -1002,16 +1002,16 @@ BHRED"\t                         |--- BY BSEMC 1-B ---|                         
                 deleteStudent();
                 break;
             case 0:
-                printf(GRN"\nProposed by: EMC/1/B\n"HAGGANGDITO);
-                printf(HRED" Leader:"HAGGANGDITO HWHT"  Charles Vincent Razon\n"HAGGANGDITO);
-                printf(HBLU" Members:"HAGGANGDITO HWHT" John Jerick Borlio\n"HAGGANGDITO);
-                printf(HWHT"          Gabriel Yam-id Abria\n"HAGGANGDITO);
-                printf(HWHT"          Takumi Yoshiga\n"HAGGANGDITO);
-                printf(HWHT"          Mark Denver Gerona Abenes\n"HAGGANGDITO);
-                printf(GRN"\nApproved by:\n"HAGGANGDITO);
-                printf(HWHT" Genalyn D. Villafuerte\n"HAGGANGDITO);
-                printf(HWHT" EMC Faculty\n\n"HAGGANGDITO);
-                printf(BHMAG"THANK YOU FOR USING CGRADES. Goodbye!\n"HAGGANGDITO);
+                printf(GRN"\nProposed by: EMC/1/B\n" HAGGANGDITO);
+                printf(HRED" Leader:" HAGGANGDITO HWHT"  Charles Vincent Razon\n" HAGGANGDITO);
+                printf(HBLU" Members:" HAGGANGDITO HWHT" John Jerick Borlio\n" HAGGANGDITO);
+                printf(HWHT"          Gabriel Yam-id Abria\n" HAGGANGDITO);
+                printf(HWHT"          Takumi Yoshiga\n" HAGGANGDITO);
+                printf(HWHT"          Mark Denver Gerona Abenes\n" HAGGANGDITO);
+                printf(GRN"\nApproved by:\n" HAGGANGDITO);
+                printf(HWHT" Genalyn D. Villafuerte\n" HAGGANGDITO);
+                printf(HWHT" EMC Faculty\n\n" HAGGANGDITO);
+                printf(BHMAG"THANK YOU FOR USING CGRADES. Goodbye!\n" HAGGANGDITO);
                 printf(HBLK"\nPress Enter to exit...");
                 getchar();
                 return 0;
@@ -1023,3 +1023,4 @@ BHRED"\t                         |--- BY BSEMC 1-B ---|                         
     
     return 0;
 }
+
