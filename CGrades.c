@@ -924,25 +924,57 @@ void deleteStudent() {
     printf("\n");
     
     int id;
-    printf(HYEL"Enter student ID to delete: " HAGGANGDITO);
+    printf(HYEL"Enter student ID to delete (0 to cancel): " HAGGANGDITO);
     scanf("%d", &id);
     getchar();
     system("cls");
     
+    if (id == 0) {
+        return;
+    }
+    
     for (int i = 0; i < studentCount; i++) {
         if (students[i].id == id) {
-            printf(GRN"\nStudent deleted successfully: " HAGGANGDITO GRN" ID:" HAGGANGDITO HWHT" %d " HAGGANGDITO RED"| " HAGGANGDITO GRN" Name:" HAGGANGDITO HWHT" %s\n\n" HAGGANGDITO, students[i].id, students[i].name);
-            for (int j = i; j < studentCount - 1; j++) {
-                students[j] = students[j + 1];
+            // Show student details and ask for confirmation
+            printf(BCYN"=== CONFIRM DELETION ===\n\n" HAGGANGDITO);
+            printf(HWHT"Student Details:\n" HAGGANGDITO);
+            printf(CYN"  ID: " HAGGANGDITO"%d\n", students[i].id);
+            printf(CYN"  Name: " HAGGANGDITO"%s\n", students[i].name);
+            printf(CYN"  Grade: " HAGGANGDITO"%d\n", students[i].grade);
+            printf(CYN"  Section: " HAGGANGDITO"%s\n\n", students[i].section);
+            
+            printf(HRED"WARNING: This action cannot be undone!\n\n" HAGGANGDITO);
+            printf(HYEL"Are you sure you want to delete this student? (Y/N): " HAGGANGDITO);
+            
+            char confirm;
+            scanf(" %c", &confirm);
+            getchar();
+            system("cls");
+            
+            if (confirm == 'Y' || confirm == 'y') {
+                printf(GRN"\nStudent deleted successfully: " HAGGANGDITO GRN" ID:" HAGGANGDITO HWHT" %d " HAGGANGDITO RED"| " HAGGANGDITO GRN" Name:" HAGGANGDITO HWHT" %s\n\n" HAGGANGDITO, students[i].id, students[i].name);
+                for (int j = i; j < studentCount - 1; j++) {
+                    students[j] = students[j + 1];
+                }
+                studentCount--;
+                saveToFile();
+                printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                getchar();
+                system("cls");
+            } else {
+                printf(YEL"Deletion cancelled.\n" HAGGANGDITO);
+                printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                getchar();
+                system("cls");
             }
-            studentCount--;
-            saveToFile();
             return;
         }
     }
     system("cls");
     printf(RED"Student not found.\n\a" HAGGANGDITO);
-    
+    printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+    getchar();
+    system("cls");
 }
 
 //===========================================================================================================================

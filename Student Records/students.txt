@@ -1,4 +1,4 @@
-Total Students: 2
+Total Students: 1
 
 
 ID: 1
@@ -15,22 +15,5 @@ Examination: 0.00
 Project:     0.00
 Average:     0.00
 Status:      INC
-
-================
-
-ID: 2
-Name: charles Viasdfasd
-Grade: 12
-Section: A
-Quiz 1:      89.00
-Quiz 2:      89.00
-Quiz 3:      99.00
-Activity 1:  89.00
-Activity 2:  89.00
-Activity 3:  99.00
-Examination: 88.00
-Project:     99.00
-Average:     92.17
-Status:      OK
 
 ================
