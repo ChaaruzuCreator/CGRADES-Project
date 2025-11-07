@@ -37,7 +37,7 @@ Status:      INC
 
 ID: 3
 Name: cha
-Grade: 1
+Grade: 2
 Section: A
 Quiz 1:      0.00
 Quiz 2:      0.00

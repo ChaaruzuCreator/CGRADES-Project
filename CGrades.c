@@ -918,27 +918,30 @@ void editStudent() {
                         }
                         break;
                     }
-                    case 10:
+                    case 10: {
 
                         printf(BCYN"=== EDITTING STUDENT GRADE LEVEL ===\n\n" HAGGANGDITO);
 
+                        int tempGrade;
                         do {
                             printf(CYN"Current Grade: " HAGGANGDITO"%d\n\n", students[i].grade);
                             printf(HYEL"Enter new grade level (1-12): " HAGGANGDITO);
-                            if (scanf("%d", &students[i].grade) != 1) {
+                            if (scanf("%d", &tempGrade) != 1) {
                                 int c; while ((c = getchar()) != '\n' && c != EOF) {}
-                                students[i].grade = 0;
+                                tempGrade = 0;
                             }
-                            if (students[i].grade < 1 || students[i].grade > 12) {
+                            if (tempGrade < 1 || tempGrade > 12) {
                                 printf(RED"Please enter a valid grade between 1 and 12.\n" HAGGANGDITO);
                             }
-                        } while (students[i].grade < 1 || students[i].grade > 12);
+                        } while (tempGrade < 1 || tempGrade > 12);
+                        students[i].grade = tempGrade;
                         printf(GRN "Grade updated to: %d\n\n" HAGGANGDITO, students[i].grade);
                         printf(UWHT"Press Enter to continue..." HAGGANGDITO);
                         getchar();
                         getchar();
                         system("cls");
                         break;
+                    }
 
                     case 11: {
 
