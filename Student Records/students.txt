@@ -2,18 +2,18 @@ Total Students: 1
 
 
 ID: 1
-Name: asdfsdf
+Name: Mc Batumbakal
 Grade: 12
 Section: A
-Quiz 1:      0.00
-Quiz 2:      0.00
-Quiz 3:      0.00
-Activity 1:  0.00
-Activity 2:  0.00
-Activity 3:  0.00
-Examination: 0.00
-Project:     0.00
-Average:     0.00
-Status:      INC
+Quiz 1:      100.00
+Quiz 2:      100.00
+Quiz 3:      100.00
+Activity 1:  100.00
+Activity 2:  100.00
+Activity 3:  100.00
+Examination: 100.00
+Project:     100.00
+Average:     100.00
+Status:      OK
 
 ================
