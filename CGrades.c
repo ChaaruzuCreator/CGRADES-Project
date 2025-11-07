@@ -734,6 +734,11 @@ void editStudent() {
                             scanf("%f", &students[i].quiz1);
                         }
                         printf(GRN"Quiz 1 updated: %.2f\n\n" HAGGANGDITO, students[i].quiz1);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 2:
@@ -750,6 +755,11 @@ void editStudent() {
                             scanf("%f", &students[i].quiz2);
                         }
                         printf(GRN "Quiz 2 updated: %.2f\n\n" HAGGANGDITO, students[i].quiz2);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 3:
@@ -766,6 +776,11 @@ void editStudent() {
                             scanf("%f", &students[i].quiz3);
                         }
                         printf(GRN "Quiz 3 updated: %.2f\n\n" HAGGANGDITO, students[i].quiz3);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 4:
@@ -782,6 +797,11 @@ void editStudent() {
                             scanf("%f", &students[i].activity1);
                         }
                         printf(GRN "Activity 1 updated: %.2f\n\n" HAGGANGDITO, students[i].activity1);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 5:
@@ -798,6 +818,11 @@ void editStudent() {
                             scanf("%f", &students[i].activity2);
                         }
                         printf(GRN "Activity 2 updated: %.2f\n\n" HAGGANGDITO, students[i].activity2);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 6:
@@ -814,6 +839,11 @@ void editStudent() {
                             scanf("%f", &students[i].activity3);
                         }
                         printf(GRN "Activity 3 updated: %.2f\n\n" HAGGANGDITO, students[i].activity3);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 7:
@@ -830,6 +860,11 @@ void editStudent() {
                             scanf("%f", &students[i].examination);
                         }
                         printf(GRN "Examination updated: %.2f\n\n" HAGGANGDITO, students[i].examination);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
+
                         break;
                         
                     case 8:
@@ -846,6 +881,10 @@ void editStudent() {
                             scanf("%f", &students[i].project);
                         }
                         printf(GRN "Project updated: %.2f\n\n" HAGGANGDITO, students[i].project);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
                         break;
 
                     case 9: {
@@ -873,6 +912,10 @@ void editStudent() {
                             strncpy(students[i].name, buffer, MAX_NAME);
                             students[i].name[MAX_NAME - 1] = '\0';
                             printf(GRN"Name updated to: %s\n\n" HAGGANGDITO, students[i].name);
+                            printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
                             break;
                         }
                         break;
@@ -893,6 +936,10 @@ void editStudent() {
                             }
                         } while (students[i].grade < 1 || students[i].grade > 12);
                         printf(GRN "Grade updated to: %d\n\n" HAGGANGDITO, students[i].grade);
+                        printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
                         break;
 
                     case 11: {
@@ -922,6 +969,10 @@ void editStudent() {
                             students[i].section[0] = (char)toupper((unsigned char)students[i].section[0]);
                             students[i].section[1] = '\0';
                             printf(GRN"Section updated to: %s\n\n" HAGGANGDITO, students[i].section);
+                            printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                        getchar();
+                        getchar();
+                        system("cls");
                             break;
                         }
                         break;
