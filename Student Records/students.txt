@@ -3,7 +3,7 @@ Total Students: 1
 
 ID: 1
 Name: Mc Batumbakal
-Grade: 12
+Grade: 11
 Section: A
 Quiz 1:      100.00
 Quiz 2:      100.00

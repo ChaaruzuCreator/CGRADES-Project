@@ -911,11 +911,9 @@ void editStudent() {
                             }
                             strncpy(students[i].name, buffer, MAX_NAME);
                             students[i].name[MAX_NAME - 1] = '\0';
-                            printf(GRN"Name updated to: %s\n\n" HAGGANGDITO, students[i].name);
-                            printf(UWHT"Press Enter to continue..." HAGGANGDITO);
-                        getchar();
-                        getchar();
-                        system("cls");
+                            printf(GRN"Name updated to: %s\n\n" HAGGANGDITO, students[i].name);printf(UWHT"Press Enter to continue..." HAGGANGDITO);
+                            getchar();
+                            system("cls");
                             break;
                         }
                         break;
@@ -970,9 +968,8 @@ void editStudent() {
                             students[i].section[1] = '\0';
                             printf(GRN"Section updated to: %s\n\n" HAGGANGDITO, students[i].section);
                             printf(UWHT"Press Enter to continue..." HAGGANGDITO);
-                        getchar();
-                        getchar();
-                        system("cls");
+                            getchar();
+                            system("cls");
                             break;
                         }
                         break;
