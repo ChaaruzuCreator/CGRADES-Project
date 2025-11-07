@@ -311,7 +311,7 @@ void addStudent() {
         
         printf(BCYN"\nWhat do you " HAGGANGDITO UCYN BCYN"WANT" HAGGANGDITO BCYN" to record?\n\n" HAGGANGDITO);
 
-        printf(HGRN"\n NOTE: "HBLK" NOTE: Choose which record to input (Quizzes, Activities, Exam, or Project). You may save once all scores have been entered.\n\n\n" HAGGANGDITO);
+        printf(HGRN"\n NOTE: "HBLK" NOTE: Choose which record to input [Quizzes(10%%), Activities(10%%), Exam(30%%), or Project(50%%)]. You may save once all scores have been entered.\n\n\n" HAGGANGDITO);
 
         printf(YEL"[1]" HAGGANGDITO" Quiz 1  " YEL"[4]" HAGGANGDITO" Activity 1  " YEL"[7]" HAGGANGDITO" Examination\n");
         printf(YEL"[2]" HAGGANGDITO" Quiz 2  " YEL"[5]" HAGGANGDITO" Activity 2  " YEL"[8]" HAGGANGDITO" Project\n");

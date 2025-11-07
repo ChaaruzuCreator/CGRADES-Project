@@ -1,4 +1,4 @@
-Total Students: 1
+Total Students: 3
 
 
 ID: 1
@@ -15,5 +15,39 @@ Examination: 100.00
 Project:     100.00
 Average:     100.00
 Status:      OK
+
+================
+
+ID: 2
+Name: ads
+Grade: 12
+Section: A
+Quiz 1:      1.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
+Examination: 0.00
+Project:     0.00
+Average:     0.03
+Status:      INC
+
+================
+
+ID: 3
+Name: cha
+Grade: 1
+Section: A
+Quiz 1:      0.00
+Quiz 2:      0.00
+Quiz 3:      0.00
+Activity 1:  0.00
+Activity 2:  0.00
+Activity 3:  0.00
+Examination: 0.00
+Project:     0.00
+Average:     0.00
+Status:      INC
 
 ================
