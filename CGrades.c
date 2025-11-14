@@ -658,6 +658,7 @@ void showAllStudents() {
             printf(RED "Invalid choice!\n" HAGGANGDITO);
             printf(UWHT"Press Enter to continue..." HAGGANGDITO);
             getchar();
+            system("cls");
         }
     }
 }
