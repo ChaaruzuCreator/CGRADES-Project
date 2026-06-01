@@ -1,11 +1,14 @@
 #include <stdio.h>
+
+#ifdef _WIN32
 #include <windows.h>
+#endif
 
 #define HAGGANGDITO          "\x1b[0m"
 
 #define BLACK        "\x1b[30m"
 #define RED          "\x1b[31m"
-#define GREEN      "\x1b[32m"
+#define GREEN        "\x1b[32m"
 #define YELLOW       "\x1b[33m"
 #define BLUE         "\x1b[34m"
 #define MAGENTA      "\x1b[35m"
@@ -25,12 +28,13 @@
 #define STYLE_ITALIC       "\x1b[3m"
 #define STYLE_UNDERLINE    "\x1b[4m"
 
-
 void enableANSI() {
+#ifdef _WIN32
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD dwMode = 0;
     GetConsoleMode(hOut, &dwMode);
     dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
     SetConsoleMode(hOut, dwMode);
+#endif
 }
 

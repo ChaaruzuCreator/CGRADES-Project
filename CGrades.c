@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include "Color.h"
 
+#ifdef _WIN32
+#define CLEAR_SCREEN "cls"
+#else
+#define CLEAR_SCREEN "clear"
+#endif
+
 #define MAX_STUDENTS 50
 #define MAX_NAME 50
 
@@ -20,9 +26,17 @@ int studentCount = 0;
 
 void saveToFile() {
 
+    #ifdef _WIN32
     system("mkdir \"Student Records\" 2>nul");
+#else
+    system("mkdir -p \"Student Records\" 2>/dev/null");
+#endif
     
+    #ifdef _WIN32
     FILE* file = fopen("Student Records\\students.txt", "w");
+#else
+    FILE* file = fopen("Student Records/students.txt", "w");
+#endif
     if (file == NULL) {
         printf("Error saving data!\n");
         return;
@@ -44,7 +58,11 @@ void saveToFile() {
 }
 
 void loadFromFile() {
+    #ifdef _WIN32
     FILE* file = fopen("Student Records\\students.txt", "r");
+#else
+    FILE* file = fopen("Student Records/students.txt", "r");
+#endif
     if (file == NULL) {
         return;
     }
@@ -95,7 +113,7 @@ void addStudent() {
         printf("4. Finish and Save\n");
         printf("Choose: ");
         scanf("%d", &recordChoice);
-        system("cls");
+        system(CLEAR_SCREEN);
         
         switch (recordChoice) {
             case 1:
@@ -160,7 +178,7 @@ void addStudent() {
         printf("\nYou can Edit this again\n");
     printf("\nPress Enter to continue: ");
     getchar();
-    system("cls");
+    system(CLEAR_SCREEN);
 }
 
 void showAllStudents() {
@@ -180,7 +198,7 @@ void showAllStudents() {
     }
     printf("\nPress Enter to exit: ");
     getchar();
-    system("cls");
+    system(CLEAR_SCREEN);
 }
 
 void searchStudent() {
@@ -238,7 +256,7 @@ void editStudent() {
                 printf("4. Finish and Save\n");
                 printf("Choose: ");
                 scanf("%d", &editChoice);
-                system("cls");
+                system(CLEAR_SCREEN);
                 
                 switch (editChoice) {
                     case 1:
@@ -301,7 +319,7 @@ void editStudent() {
                 printf("Average: %.2f\n", students[i].average);
             printf("\nPress Enter to continue: ");
             getchar();
-            system("cls");
+            system(CLEAR_SCREEN);
             return;
         }
     }
@@ -363,7 +381,7 @@ GREEN"\t    .::      .::::   .:::::::          .:       .:::::    .::::::::  .::
         printf("Enter choice: ");
         scanf("%d", &choice);
         getchar();
-        system("cls");
+        system(CLEAR_SCREEN);
         
         switch (choice) {
             case 1:
